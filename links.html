@@ -41,8 +41,8 @@
       z-index: 0;
       pointer-events: none;
       opacity: 0.95;
-      box-shadow:
-        -30px 0 60px rgba(255, 215, 0, 0.3),
+      box-shadow: 
+        -30px 0 60px rgba(255, 215, 0, 0.3), 
         30px 0 60px rgba(255, 215, 0, 0.3);
     }
 
@@ -57,26 +57,21 @@
     h1 {
       font-size: 3.8em;
       font-weight: 900;
-      color: #f5f5f5;
-      text-shadow: 0 0 14px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7); /* branco mais fosco */
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
       margin: 40px 0 10px 0;
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
-      animation: pulseText 2.5s infinite ease-in-out;
-    }
-
-    @keyframes pulseText {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.85; }
+      animation: pulseTitle 2.5s infinite ease-in-out;
     }
 
     .description {
       font-size: 1.3em;
       line-height: 1.5em;
-      color: #f5f5f5;
+      color: rgba(255, 255, 255, 0.7); /* branco mais fosco */
       margin-bottom: 50px;
       font-weight: 600;
-      text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.1);
+      text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.2);
     }
 
     .buttons-container {
@@ -88,8 +83,8 @@
     }
 
     .btn-link {
-      background-image: linear-gradient(135deg, #000000 0%, #b8860b 100%);
-      color: #ffffff;
+      background-color: #b8860b;
+      color: #000;
       font-weight: 700;
       padding: 18px 30px;
       border-radius: 40px;
@@ -100,7 +95,7 @@
       align-items: center;
       justify-content: center;
       gap: 18px;
-      box-shadow: 0 0 14px rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 12px #b8860b99;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       width: 100%;
       max-width: 600px;
@@ -108,14 +103,14 @@
     }
 
     .btn-link:hover {
-      background-image: linear-gradient(135deg, #1a1a1a 0%, #ffd700 100%);
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      background-color: #d6af2b;
+      box-shadow: 0 0 18px #d6af2bcc;
       transform: scale(1.05);
     }
 
     .btn-link:active {
       transform: scale(0.95);
-      box-shadow: inset 0 0 8px rgba(255, 215, 0, 0.4);
+      box-shadow: 0 0 6px #b8860bcc inset;
     }
 
     .btn-link i {
@@ -139,6 +134,17 @@
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.6; }
+    }
+
+    @keyframes pulseTitle {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+      }
+      50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 16px rgba(255, 255, 255, 0.4), 0 0 28px rgba(255, 255, 255, 0.2);
+      }
     }
 
     @media (max-width: 480px) {
@@ -175,29 +181,47 @@
   </div>
 
   <div class="buttons-container">
-    <a href="https://wa.me/+5522992568259" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
+    <a
+      href="https://wa.me/+5522992568259"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fab fa-whatsapp"></i> WhatsApp</a>
 
-    <a href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fas fa-chart-line"></i> Corretora
-    </a>
+    <a
+      href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack="
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-chart-line"></i> Corretora</a>
 
-    <a href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fab fa-tiktok"></i> TikTok
-    </a>
+    <a
+      href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fab fa-tiktok"></i> TikTok</a>
 
-    <a href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fas fa-graduation-cap"></i> MTI
-    </a>
+    <a
+      href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-graduation-cap"></i> MTI</a>
 
-    <a href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fas fa-bolt"></i> Código da Alavancagem
-    </a>
+    <a
+      href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-bolt"></i> Código da Alavancagem</a>
 
-    <a href="https://t.me/+ouYsMCHzRRdhYTkx" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fas fa-comments"></i> Sala de Sinais
-    </a>
+    <a
+      href="https://t.me/+ouYsMCHzRRdhYTkx"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-comments"></i> Sala de Sinais</a>
   </div>
 </body>
 </html>
