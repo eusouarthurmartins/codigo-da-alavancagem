@@ -57,20 +57,21 @@
     h1 {
       font-size: 3.8em;
       font-weight: 900;
-      color: rgba(255, 255, 255, 0.85); /* branco fosco */
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.7); /* branco mais fosco */
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
       margin: 40px 0 10px 0;
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
+      animation: pulseTitle 2.5s infinite ease-in-out;
     }
 
     .description {
       font-size: 1.3em;
       line-height: 1.5em;
-      color: rgba(255, 255, 255, 0.85); /* branco fosco */
+      color: rgba(255, 255, 255, 0.7); /* branco mais fosco */
       margin-bottom: 50px;
       font-weight: 600;
-      text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.35);
+      text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.2);
     }
 
     .buttons-container {
@@ -133,6 +134,17 @@
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.6; }
+    }
+
+    @keyframes pulseTitle {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+      }
+      50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 16px rgba(255, 255, 255, 0.4), 0 0 28px rgba(255, 255, 255, 0.2);
+      }
     }
 
     @media (max-width: 480px) {
