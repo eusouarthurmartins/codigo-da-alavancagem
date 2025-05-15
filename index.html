@@ -5,135 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Upsell Código da Alavancagem</title>
   <style>
+    /* Fundo claro com imagem de gráfico animada */
     body {
-      <div style="
-  background: linear-gradient(90deg, #4b6cb7, #182848);
-  color: gold;
-  padding: 30px 20px;
-  margin: 40px auto;
-  max-width: 700px;
-  border-radius: 15px;
-  font-size: 2em;
-  font-weight: 700;
-  text-align: center;
-  box-shadow: 0 0 15px gold;
-  font-family: 'Arial Black', Arial, sans-serif;
-">
-  🎉 Parabéns por adquirir o <strong>Método Trader Inteligente</strong>! 🚀
-</div>
-
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      color: #fff;
-      background: #000;
-      /* Sombra lateral */
-      box-shadow: inset 100px 0 150px -80px #222, inset -100px 0 150px -80px #222;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 10px;
+      color: #222;
+      background: #f5f7fa url('https://cdn.pixabay.com/photo/2017/01/19/14/37/graph-1990261_960_720.png') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    /* Camada escurecida para dar contraste e suavizar */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(245, 247, 250, 0.85);
+      pointer-events: none;
+      z-index: 0;
+      animation: moveBackground 30s linear infinite;
+      background-image: url('https://cdn.pixabay.com/photo/2017/01/19/14/37/graph-1990261_960_720.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 150% 150%;
+      filter: brightness(0.9);
+    }
+
+    @keyframes moveBackground {
+      0% { background-position: center top; }
+      50% { background-position: center center; }
+      100% { background-position: center top; }
+    }
+
     .container {
-      background-color: rgba(0, 0, 0, 0.85);
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.9);
       max-width: 800px;
-      width: 100%;
-      padding: 40px 30px;
+      margin: 60px auto;
+      padding: 30px 25px;
       text-align: center;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+      box-shadow: 0 0 15px rgba(100, 100, 100, 0.3);
+      z-index: 1;
+      color: #222;
     }
     h1 {
-      color: gold;
-      font-size: 3em;
-      margin-bottom: 25px;
+      color: #b8860b;
+      font-size: 2.2em;
+      margin-bottom: 20px;
       font-weight: 900;
-      text-shadow: 1px 1px 6px #b8860b;
+      text-shadow: 1px 1px 4px #d6af2b;
     }
     p, ul li {
-      font-size: 1.2em;
-      line-height: 1.6;
-      margin: 15px 0;
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 12px 0;
     }
     .highlight {
-      color: gold;
+      color: #b8860b;
       font-weight: bold;
     }
     ul {
       text-align: left;
       padding-left: 25px;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
       list-style: none;
     }
     ul li::before {
       content: "✅";
       margin-right: 10px;
-      color: gold;
+      color: #b8860b;
     }
     .depoimentos {
-      background-color: #111;
-      padding: 25px 20px;
+      background-color: #f0f0f0;
+      padding: 20px 18px;
       border-radius: 10px;
-      margin: 35px 0;
+      margin: 30px 0;
       text-align: left;
-      box-shadow: 0 0 8px #444;
+      box-shadow: 0 0 8px #bbb;
+      color: #444;
     }
     .depoimento {
       font-style: italic;
-      margin-bottom: 18px;
-      font-size: 1.1em;
-      color: #ddd;
+      margin-bottom: 15px;
+      font-size: 1em;
+      color: #555;
     }
     .depoimento strong {
       display: block;
       margin-top: 5px;
-      color: #bbb;
+      color: #777;
       font-weight: 700;
     }
     #countdown {
-      font-size: 1.7em;
-      color: #ff4444;
+      font-size: 1.4em;
+      color: #cc3300;
       font-weight: 900;
-      margin: 25px 0 35px 0;
-      text-shadow: 0 0 5px #ff0000;
+      margin: 20px 0 30px 0;
+      text-shadow: 0 0 4px #cc3300;
     }
-    .whatsapp-button {
+    .cta-button, .whatsapp-button {
       display: inline-block;
-      background: gold;
-      color: #000;
+      background: #b8860b;
+      color: #fff;
       font-weight: bold;
-      padding: 18px 40px;
+      padding: 14px 35px;
       border-radius: 8px;
-      font-size: 1.3em;
+      font-size: 1.1em;
       text-decoration: none;
-      margin: 15px;
-      box-shadow: 0 0 10px #ffd700aa;
+      margin: 10px 12px 0 12px;
+      box-shadow: 0 0 8px #b8860baa;
       transition: background 0.3s ease, box-shadow 0.3s ease;
     }
-    .whatsapp-button:hover {
-      background: #e6c200;
-      box-shadow: 0 0 20px #e6c200cc;
+    .cta-button:hover, .whatsapp-button:hover {
+      background: #d6af2b;
+      box-shadow: 0 0 15px #d6af2bcc;
     }
     @media (max-width: 600px) {
       .container {
-        padding: 30px 15px;
+        margin: 30px 15px;
+        padding: 25px 15px;
       }
       h1 {
-        font-size: 2em;
+        font-size: 1.7em;
       }
       p, ul li {
-        font-size: 1em;
+        font-size: 0.9em;
       }
-      .whatsapp-button {
-        font-size: 1.1em;
-        padding: 14px 25px;
+      .cta-button, .whatsapp-button {
+        font-size: 1em;
+        padding: 12px 20px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <h1>🎉 Parabéns por adquirir o Método Trader Inteligente!</h1>
+
     <h1>🚀 Código da Alavancagem</h1>
 
     <p><span class="highlight">QUE BOM QUE VOCÊ CHEGOU ATÉ AQUI!</span><br />
@@ -158,11 +169,12 @@
     <div class="depoimentos">
       <div class="depoimento">“Com o Código da Alavancagem, consegui meus primeiros R$ 500 em uma semana!”<strong>– João T.</strong></div>
       <div class="depoimento">“Aprendi a multiplicar minha banca com segurança. Valeu cada centavo.”<strong>– Marina R.</strong></div>
-      <div class="depoimento">“Hoje presto serviço como trader para pessoas. Comecei com esse código!”<strong>– Carlos M.</strong></div>
+      <div class="depoimento">“Hoje presto serviço como trader para empresas. Comecei com esse código!”<strong>– Carlos M.</strong></div>
     </div>
 
     <div id="countdown">Oferta termina em: 10:00</div>
 
+    <a href="https://pay.hotmart.com/P99676603K?off=iw863u6p&checkoutMode=10" class="cta-button">🔥 Última Chance!</a>
     <a href="https://wa.me/+5522992568259" class="whatsapp-button">📲 Agende uma alavancagem comigo!</a>
 
     <div id="hotmart-sales-funnel" style="margin-top: 40px;"></div>
