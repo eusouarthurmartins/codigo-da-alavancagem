@@ -21,7 +21,7 @@
     body, html {
       height: 100%;
       font-family: 'Arial', sans-serif;
-      background-color: transparent;
+      background-color: #000;
       color: #b8860b;
       display: flex;
       flex-direction: column;
@@ -31,33 +31,26 @@
       position: relative;
     }
 
-    #background-video {
+    .background-image {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      object-fit: cover;
-      filter: brightness(0.5);
-      z-index: 0; /* fundo mais fundo */
-    }
-
-    .overlay-image {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0.3;
-      pointer-events: none;
-      z-index: 1; /* acima do vídeo */
+      object-fit: contain; /* mantém toda a imagem visível */
+      object-position: center top; /* centraliza horizontalmente e mantém topo */
+      z-index: 0;
+      pointer-events: none; /* para não atrapalhar clique */
+      opacity: 0.8; /* ajustar opacidade se quiser */
+      background-color: #000; /* fundo preto atrás da imagem */
     }
 
     h1, .description, .buttons-container {
       position: relative;
-      z-index: 2; /* conteúdo na frente */
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+      width: 90vw;
     }
 
     h1 {
@@ -74,9 +67,7 @@
       font-size: 1.3em;
       line-height: 1.5em;
       color: #ffd966;
-      text-align: center;
       margin-bottom: 40px;
-      max-width: 320px;
       font-weight: 600;
       text-shadow: 1px 1px 6px #b8860b88;
     }
@@ -85,8 +76,6 @@
       display: flex;
       flex-direction: column;
       gap: 18px;
-      width: 90vw;
-      max-width: 600px;
     }
 
     .btn-link {
@@ -142,7 +131,6 @@
       }
       .description {
         font-size: 1em;
-        max-width: 280px;
       }
       .btn-link {
         font-size: 1.2em;
@@ -155,25 +143,10 @@
   </style>
 </head>
 <body>
-  <video
-    id="background-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-  >
-    <source
-      src="https://cdn.videvo.net/videvo_files/video/free/2019-05/small_watermarked/190508_04_Candlestick_01_preview.webm"
-      type="video/webm"
-    />
-    Seu navegador não suporta vídeo em background.
-  </video>
-
   <img
     src="assets/fundo-overlay.png"
-    alt="Fundo overlay"
-    class="overlay-image"
+    alt="Imagem de fundo"
+    class="background-image"
   />
 
   <h1>Thurzin Trader</h1>
