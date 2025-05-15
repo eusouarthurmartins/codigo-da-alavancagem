@@ -21,7 +21,7 @@
     body, html {
       height: 100%;
       font-family: 'Arial', sans-serif;
-      background: #000;
+      background-color: transparent;
       color: #b8860b;
       display: flex;
       flex-direction: column;
@@ -33,18 +33,15 @@
 
     #background-video {
       position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: -2;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       filter: brightness(0.5);
+      z-index: 0; /* fundo mais fundo */
     }
 
-    /* Overlay da imagem de fundo */
     .overlay-image {
       position: fixed;
       top: 0;
@@ -53,9 +50,14 @@
       height: 100vh;
       object-fit: cover;
       object-position: center;
-      z-index: -1;
       opacity: 0.3;
       pointer-events: none;
+      z-index: 1; /* acima do vídeo */
+    }
+
+    h1, .description, .buttons-container {
+      position: relative;
+      z-index: 2; /* conteúdo na frente */
     }
 
     h1 {
@@ -66,7 +68,6 @@
       margin-bottom: 10px;
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
-      z-index: 1;
     }
 
     .description {
@@ -78,7 +79,6 @@
       max-width: 320px;
       font-weight: 600;
       text-shadow: 1px 1px 6px #b8860b88;
-      z-index: 1;
     }
 
     .buttons-container {
@@ -87,7 +87,6 @@
       gap: 18px;
       width: 90vw;
       max-width: 600px;
-      z-index: 1;
     }
 
     .btn-link {
@@ -106,7 +105,6 @@
       box-shadow: 0 0 12px #b8860b99;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       min-width: 100%;
-      z-index: 1;
     }
 
     .btn-link:hover {
@@ -172,7 +170,6 @@
     Seu navegador não suporta vídeo em background.
   </video>
 
-  <!-- Imagem de fundo overlay -->
   <img
     src="assets/fundo-overlay.png"
     alt="Fundo overlay"
