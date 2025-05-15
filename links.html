@@ -34,55 +34,59 @@
     /* Container fixo para a imagem de fundo e sombras laterais */
     .background-wrapper {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
       height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      padding-top: 20px;
       z-index: 0;
       pointer-events: none;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 12px;
-      padding-top: 20px;
-      background-color: #000;
+      background-color: transparent;
     }
 
+    /* Sombras douradas só nas laterais, separadas da imagem */
     .side-shadow {
-      width: 60px;
+      width: 40px;
       height: 80vh;
-      box-shadow: 0 0 60px 25px #b8860b;
-      filter: blur(15px);
+      border-radius: 12px;
+      box-shadow: 0 0 50px 22px #b8860b;
+      filter: blur(18px);
       opacity: 1;
-      border-radius: 14px;
+      margin: 0 6px;
+      flex-shrink: 0;
     }
 
     .background-image {
       width: auto;
       max-width: 60vw;
-      height: 80vh;
+      max-height: 80vh;
       object-fit: contain;
       object-position: center top;
       border-radius: 8px;
       box-shadow:
         0 0 40px 6px #b8860b99,
         0 0 80px 16px #b8860bcc;
+      flex-shrink: 0;
     }
 
     @media (max-width: 480px) {
       .background-wrapper {
-        gap: 8px;
+        height: 50vh;
         padding-top: 10px;
       }
       .side-shadow {
-        width: 30px;
+        width: 20px;
         height: 50vh;
         box-shadow: 0 0 30px 12px #b8860b;
         filter: blur(12px);
         border-radius: 10px;
+        margin: 0 4px;
       }
       .background-image {
         max-width: 90vw;
-        height: 50vh;
+        max-height: 50vh;
       }
     }
 
@@ -193,12 +197,13 @@
   </style>
 </head>
 <body>
-  <div class="background-wrapper">
+  <div class="background-wrapper" aria-hidden="true">
     <div class="side-shadow"></div>
     <img
       src="assets/fundo-overlay.png"
       alt="Imagem de fundo"
       class="background-image"
+      draggable="false"
     />
     <div class="side-shadow"></div>
   </div>
