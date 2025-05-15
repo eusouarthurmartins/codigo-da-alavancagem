@@ -5,78 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Oferta Especial - Última Oportunidade</title>
   <style>
-    /* Fundo com gráfico animado */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background-color: #f4f4f4;
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(to bottom, #f4f4f4 0%, #eaeaea 100%);
       color: #222;
     }
-
-    /* Simulação de gráfico animado */
-    .background-animation {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 100%;
-      background: url('https://i.ibb.co/VWvKWff/bg-candlestick.png') repeat-x;
-      opacity: 0.05;
-      animation: moveBackground 30s linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes moveBackground {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
     .container {
       max-width: 800px;
       margin: 60px auto;
-      background: rgba(255, 255, 255, 0.95);
+      background: #ffffff;
       padding: 40px 30px;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
-
+    .price-banner {
+      font-size: 2.2em;
+      font-weight: bold;
+      color: #d70000;
+      margin-bottom: 30px;
+    }
     h1 {
       font-size: 2.5em;
       color: #d4af37;
       margin-bottom: 20px;
     }
-
     p {
       font-size: 1.2em;
       line-height: 1.6;
       margin-bottom: 20px;
     }
-
     .highlight {
       color: #d4af37;
       font-weight: bold;
     }
-
     #hotmart-sales-funnel {
       margin-top: 40px;
     }
-
     .whatsapp-section {
       margin-top: 40px;
     }
-
     .whatsapp-section p {
       font-size: 1.2em;
       color: #333;
       margin-bottom: 20px;
     }
-
     .whatsapp-button {
       display: inline-block;
       background-color: #25D366;
@@ -89,20 +64,19 @@
       box-shadow: 0 0 10px #25D366aa;
       transition: background-color 0.3s ease;
     }
-
     .whatsapp-button:hover {
       background-color: #1DA851;
     }
-
     @media (max-width: 600px) {
       h1 {
         font-size: 2em;
       }
-
+      .price-banner {
+        font-size: 1.8em;
+      }
       p {
         font-size: 1em;
       }
-
       .whatsapp-button {
         font-size: 1.1em;
         padding: 12px 25px;
@@ -111,10 +85,9 @@
   </style>
 </head>
 <body>
-  <!-- Fundo animado -->
-  <div class="background-animation"></div>
-
   <div class="container">
+    <div class="price-banner">🔥 Oferta imperdível, por apenas R$ 29,99</div>
+
     <h1>🎯 Última Oportunidade!</h1>
     <p>Sabemos que você está em dúvida… então preparamos uma <span class="highlight">condição especial</span> para você não sair de mãos vazias.</p>
     <p>Você pode garantir acesso com um <span class="highlight">desconto exclusivo</span> ou até uma versão reduzida para começar com o pé direito no mercado de opções binárias.</p>
