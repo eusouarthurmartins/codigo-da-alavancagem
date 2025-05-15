@@ -21,7 +21,7 @@
     body, html {
       height: 100%;
       font-family: 'Arial', sans-serif;
-      background: #000;
+      background-color: #000;
       color: #b8860b;
       display: flex;
       flex-direction: column;
@@ -31,13 +31,11 @@
       position: relative;
     }
 
-    /* Imagem de fundo centralizada com sombra flutuante */
     .background-image {
       position: fixed;
       top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: auto;
+      left: 0;
+      width: 100vw;
       height: 100vh;
       object-fit: contain;
       object-position: center top;
@@ -45,23 +43,21 @@
       pointer-events: none;
       opacity: 0.8;
       background-color: #000;
-      box-shadow:
-        20px 0 30px 15px rgba(184, 134, 11, 0.7),
-        -20px 0 30px 15px rgba(184, 134, 11, 0.7);
-      animation: floatShadow 4s ease-in-out infinite;
     }
 
-    @keyframes floatShadow {
-      0%, 100% {
-        box-shadow:
-          20px 0 30px 15px rgba(184, 134, 11, 0.7),
-          -20px 0 30px 15px rgba(184, 134, 11, 0.7);
+    @media (max-width: 480px) {
+      .background-image {
+        object-fit: cover;
+        object-position: center center;
       }
-      50% {
-        box-shadow:
-          30px 0 40px 20px rgba(184, 134, 11, 0.9),
-          -30px 0 40px 20px rgba(184, 134, 11, 0.9);
-      }
+    }
+
+    h1, .description, .buttons-container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+      width: 90vw;
     }
 
     h1 {
@@ -72,50 +68,42 @@
       margin-bottom: 10px;
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
-      position: relative;
-      z-index: 10;
     }
 
     .description {
       font-size: 1.3em;
       line-height: 1.5em;
       color: #ffd966;
-      text-align: center;
       margin-bottom: 40px;
-      max-width: 320px;
       font-weight: 600;
       text-shadow: 1px 1px 6px #b8860b88;
-      position: relative;
-      z-index: 10;
     }
 
     .buttons-container {
       display: flex;
       flex-direction: column;
       gap: 18px;
-      width: 90vw;
-      max-width: 600px;
-      position: relative;
-      z-index: 10;
+      align-items: center;
     }
 
     .btn-link {
       background-color: #b8860b;
       color: #000;
       font-weight: 700;
-      padding: 18px 25px;
+      padding: 18px 30px;
       border-radius: 40px;
       text-decoration: none;
-      font-size: 1.4em;
-      letter-spacing: 1.2px;
+      font-size: 1.6em;
+      letter-spacing: 1.5px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 18px;
       box-shadow: 0 0 12px #b8860b99;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
-      min-width: 100%;
-      animation: pulse 2s infinite ease-in-out;
+      width: 100%;
+      max-width: 600px;
+      animation: blink 6s infinite;
     }
 
     .btn-link:hover {
@@ -130,14 +118,10 @@
     }
 
     .btn-link i {
-      font-size: 1.6em;
-      min-width: 24px;
+      font-size: 1.8em;
+      min-width: 28px;
       text-align: center;
-    }
-
-    /* Ícone maior pro botão Código da Alavancagem */
-    .btn-link.codigo i {
-      font-size: 2em;
+      animation: pulse 2s infinite ease-in-out;
     }
 
     @keyframes pulse {
@@ -151,29 +135,34 @@
       }
     }
 
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; } /* menos opaco e mais suave */
+    }
+
     @media (max-width: 480px) {
       h1 {
         font-size: 2.5em;
       }
       .description {
         font-size: 1em;
-        max-width: 280px;
       }
       .btn-link {
-        font-size: 1.2em;
-        padding: 16px 20px;
+        font-size: 1.4em;
+        padding: 16px 25px;
       }
       .btn-link i {
-        font-size: 1.4em;
-      }
-      .btn-link.codigo i {
         font-size: 1.6em;
       }
     }
   </style>
 </head>
 <body>
-  <img src="assets/fundo-overlay.png" alt="Fundo" class="background-image" />
+  <img
+    src="assets/fundo-overlay.png"
+    alt="Imagem de fundo"
+    class="background-image"
+  />
 
   <h1>Thurzin Trader</h1>
 
@@ -216,9 +205,9 @@
     <a
       href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10"
       target="_blank"
-      class="btn-link codigo"
+      class="btn-link"
       rel="noopener noreferrer"
-    ><i class="fas fa-bolt"></i> Código da Alavancagem</a>
+    ><i class="fas fa-code"></i> Código da Alavancagem</a>
 
     <a
       href="https://t.me/+ouYsMCHzRRdhYTkx"
