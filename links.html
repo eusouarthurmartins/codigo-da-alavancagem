@@ -43,10 +43,10 @@
       pointer-events: none;
       opacity: 0.8;
       background-color: transparent;
-      /* bordas com gradiente estilo Netflix */
+      /* bordas mais grossas e marcantes estilo Netflix */
       box-shadow:
-        inset 25px 0 40px 12px #e50914,
-        inset -25px 0 40px 12px #e50914;
+        inset 40px 0 60px 20px #e50914,
+        inset -40px 0 60px 20px #e50914;
     }
 
     @media (max-width: 480px) {
@@ -64,36 +64,27 @@
       width: 90vw;
     }
 
-    /* Gradiente estilo Netflix para o título */
+    /* Título branco fosco impactante */
     h1 {
       font-size: 3.5em;
       font-weight: 900;
-      background: linear-gradient(90deg, #e50914, #7a0000);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
+      color: rgba(255, 255, 255, 0.85);
+      text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.6),
+        0 0 12px rgba(255, 255, 255, 0.4);
       margin-bottom: 40px;
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
-      text-shadow:
-        0 0 6px #e50914aa,
-        0 0 12px #7a000088;
     }
 
-    /* Gradiente estilo Netflix para a descrição */
+    /* Descrição branco fosco com sombra suave */
     .description {
       font-size: 1.3em;
       line-height: 1.5em;
-      background: linear-gradient(90deg, #e50914cc, #7a000099);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
+      color: rgba(255, 255, 255, 0.75);
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
       margin-bottom: 60px;
       font-weight: 600;
-      text-shadow:
-        1px 1px 4px #7a000088;
     }
 
     .buttons-container {
