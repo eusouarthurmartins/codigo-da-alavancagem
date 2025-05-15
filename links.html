@@ -18,42 +18,58 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    body, html {
       height: 100%;
       font-family: 'Arial', sans-serif;
       background-color: #000;
       color: #b8860b;
       overflow-x: hidden;
-    }
-
-    body {
-      /* Usando imagem como background para cobrir toda tela */
-      background: url('assets/fundo-overlay.png') no-repeat center top;
-      background-size: cover;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
-      min-height: 100vh;
-      /* sombra lateral dourada */
-      box-shadow:
-        inset 20px 0 40px -10px #b8860b88,
-        inset -20px 0 40px -10px #b8860b88;
     }
 
-    /* Conteúdo sobreposto */
+    /* Imagem fixa de fundo */
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover; /* cobre toda área sem distorcer */
+      object-position: center;
+      z-index: 0;
+      pointer-events: none;
+      filter: brightness(0.7);
+    }
+
+    /* Sombras douradas só nas laterais */
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      width: 60px;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      box-shadow: 0 0 60px 25px #b8860b;
+    }
+
+    body::before {
+      left: 0;
+    }
+
+    body::after {
+      right: 0;
+    }
+
+    /* Conteúdo centralizado em cima */
     .content-wrapper {
       position: relative;
       z-index: 2;
       max-width: 600px;
       width: 90vw;
-      background-color: rgba(0, 0, 0, 0.45);
+      margin: 0 auto;
       padding: 30px 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px #b8860bbb;
+      text-align: center;
     }
 
     h1 {
@@ -136,14 +152,12 @@
       50% { opacity: 0.6; }
     }
 
-    /* Ajustes mobile */
     @media (max-width: 480px) {
       h1 {
-        font-size: 2.8em;
+        font-size: 2.5em;
       }
       .description {
         font-size: 1em;
-        margin-bottom: 30px;
       }
       .btn-link {
         font-size: 1.4em;
@@ -152,13 +166,16 @@
       .btn-link i {
         font-size: 1.6em;
       }
-      .content-wrapper {
-        padding: 20px 15px;
-      }
     }
   </style>
 </head>
 <body>
+  <img
+    src="assets/fundo-overlay.png"
+    alt="Imagem de fundo"
+    class="background-image"
+  />
+
   <div class="content-wrapper">
     <h1>Thurzin Trader</h1>
 
