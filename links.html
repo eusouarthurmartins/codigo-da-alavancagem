@@ -6,10 +6,7 @@
   <title>Thurzin Trader - Links</title>
 
   <!-- Font Awesome CDN -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
   <style>
     * {
@@ -22,11 +19,11 @@
       height: 100%;
       font-family: 'Arial', sans-serif;
       background-color: #000;
-      color: #b8860b;
+      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       overflow-x: hidden;
       position: relative;
     }
@@ -34,16 +31,22 @@
     .background-image {
       position: fixed;
       top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: auto;
+      left: 0;
+      width: 100vw;
       height: 100vh;
+      object-fit: contain;
+      object-position: center top;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.95;
-      box-shadow: 
-        -30px 0 60px rgba(255, 215, 0, 0.3), 
-        30px 0 60px rgba(255, 215, 0, 0.3);
+      opacity: 0.9;
+      filter: drop-shadow(0 0 50px #e50914);
+    }
+
+    @media (max-width: 480px) {
+      .background-image {
+        object-fit: cover;
+        object-position: center center;
+      }
     }
 
     h1, .description, .buttons-container {
@@ -57,9 +60,9 @@
     h1 {
       font-size: 3.8em;
       font-weight: 900;
-      color: #ffd700;
-      text-shadow: 0 0 12px #ffd700aa, 0 0 24px #b8860b77;
-      margin: 40px 0 10px 0;
+      color: #e50914;
+      text-shadow: 0 0 12px #e50914aa, 0 0 24px #e5091477;
+      margin: 40px 0 10px;
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
     }
@@ -67,10 +70,10 @@
     .description {
       font-size: 1.3em;
       line-height: 1.5em;
-      color: #ffd966;
-      margin-bottom: 50px;
+      color: #ccc;
+      margin-bottom: 60px;
       font-weight: 600;
-      text-shadow: 1px 1px 6px #b8860b88;
+      text-shadow: 1px 1px 6px #111;
     }
 
     .buttons-container {
@@ -78,12 +81,11 @@
       flex-direction: column;
       gap: 18px;
       align-items: center;
-      margin-bottom: 40px;
     }
 
     .btn-link {
-      background-color: #b8860b;
-      color: #000;
+      background-color: #e50914;
+      color: #fff;
       font-weight: 700;
       padding: 18px 30px;
       border-radius: 40px;
@@ -94,7 +96,7 @@
       align-items: center;
       justify-content: center;
       gap: 18px;
-      box-shadow: 0 0 12px #b8860b99;
+      box-shadow: 0 0 14px #e5091477;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       width: 100%;
       max-width: 600px;
@@ -102,14 +104,14 @@
     }
 
     .btn-link:hover {
-      background-color: #d6af2b;
-      box-shadow: 0 0 18px #d6af2bcc;
+      background-color: #ff0f1b;
+      box-shadow: 0 0 18px #ff0f1bcc;
       transform: scale(1.05);
     }
 
     .btn-link:active {
       transform: scale(0.95);
-      box-shadow: 0 0 6px #b8860bcc inset;
+      box-shadow: 0 0 6px #99070f inset;
     }
 
     .btn-link i {
@@ -138,9 +140,11 @@
     @media (max-width: 480px) {
       h1 {
         font-size: 2.5em;
+        margin-top: 60px;
       }
       .description {
         font-size: 1em;
+        margin-bottom: 40px;
       }
       .btn-link {
         font-size: 1.4em;
@@ -153,11 +157,7 @@
   </style>
 </head>
 <body>
-  <img
-    src="assets/fundo-overlay.png"
-    alt="Imagem de fundo"
-    class="background-image"
-  />
+  <img src="assets/fundo-overlay.png" alt="Imagem de fundo" class="background-image" />
 
   <h1>Thurzin Trader</h1>
 
@@ -169,47 +169,29 @@
   </div>
 
   <div class="buttons-container">
-    <a
-      href="https://wa.me/+5522992568259"
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://wa.me/+5522992568259" target="_blank" class="btn-link" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
 
-    <a
-      href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack="
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fas fa-chart-line"></i> Corretora</a>
+    <a href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=" target="_blank" class="btn-link" rel="noopener noreferrer">
+      <i class="fas fa-chart-line"></i> Corretora
+    </a>
 
-    <a
-      href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc"
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fab fa-tiktok"></i> TikTok</a>
+    <a href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc" target="_blank" class="btn-link" rel="noopener noreferrer">
+      <i class="fab fa-tiktok"></i> TikTok
+    </a>
 
-    <a
-      href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10"
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fas fa-graduation-cap"></i> MTI</a>
+    <a href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10" target="_blank" class="btn-link" rel="noopener noreferrer">
+      <i class="fas fa-graduation-cap"></i> MTI
+    </a>
 
-    <a
-      href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10"
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fas fa-bolt"></i> Código da Alavancagem</a>
+    <a href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10" target="_blank" class="btn-link" rel="noopener noreferrer">
+      <i class="fas fa-bolt"></i> Código da Alavancagem
+    </a>
 
-    <a
-      href="https://t.me/+ouYsMCHzRRdhYTkx"
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fas fa-comments"></i> Sala de Sinais</a>
+    <a href="https://t.me/+ouYsMCHzRRdhYTkx" target="_blank" class="btn-link" rel="noopener noreferrer">
+      <i class="fas fa-comments"></i> Sala de Sinais
+    </a>
   </div>
 </body>
 </html>
