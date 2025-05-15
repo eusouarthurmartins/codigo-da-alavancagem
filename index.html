@@ -3,153 +3,237 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Upsell - Código da Alavancagem</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Upsell Código da Alavancagem</title>
   <style>
+    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      font-family: 'Roboto', sans-serif;
-      color: #fff;
-      background: #000;
+
+    body, html {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
       overflow-x: hidden;
     }
-    .hero {
-      position: relative;
-      height: 100vh;
-      background: url('https://i.ibb.co/Wxrgh9f/trader-background.gif') no-repeat center center/cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
+
+    /* Container geral */
+    .background {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      animation: zoom 30s ease-in-out infinite alternate;
+      z-index: -2;
+      filter: brightness(0.4);
     }
+
+    /* Overlay escuro para contraste */
     .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 1;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: -1;
     }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
+
+    @keyframes zoom {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
     }
-    .hero h1 {
-      font-size: 3rem;
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto 60px auto;
+      padding: 40px 30px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
       color: gold;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 5px #b8860b;
+    }
+
+    p {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      text-shadow: 0 0 5px #a67c00;
+    }
+
+    .highlight {
+      font-weight: 700;
+      color: #ffd700;
+      text-shadow: 0 0 8px #ffea00;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 40px;
+      text-align: left;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      padding-left: 30px;
+      position: relative;
+      text-shadow: 0 0 4px #d4af37;
+    }
+
+    ul li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .depoimentos {
+      background: rgba(30, 30, 30, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      text-align: left;
+      color: #fff8dc;
+      font-style: italic;
+      box-shadow: 0 0 15px #b8860b;
+    }
+
+    .depoimento {
       margin-bottom: 20px;
     }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
+
+    .depoimento strong {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      color: #ffd700;
+      text-shadow: 0 0 5px #b8860b;
     }
-    .buttons a {
+
+    #countdown {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #ff5555;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #ff0000;
+    }
+
+    .cta-button {
       display: inline-block;
       background: gold;
-      color: black;
+      color: #000;
+      font-weight: 900;
+      padding: 18px 45px;
+      border-radius: 12px;
+      font-size: 1.4em;
       text-decoration: none;
-      font-weight: bold;
-      padding: 15px 30px;
-      border-radius: 8px;
-      margin: 10px;
-      transition: background 0.3s;
+      cursor: pointer;
+      margin-bottom: 40px;
+      box-shadow: 0 0 15px #ffd700;
+      transition: background 0.3s, transform 0.2s;
     }
-    .buttons a:hover {
+
+    .cta-button:hover {
       background: #e6c200;
+      transform: scale(1.05);
     }
-    .section {
-      background: #111;
-      padding: 40px 20px;
-      text-align: center;
+
+    .whatsapp-button {
+      display: inline-block;
+      background: #25d366;
+      color: white;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 12px;
+      font-size: 1.1em;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 0 15px #25d366cc;
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 10px;
     }
-    .section h2 {
-      font-size: 2rem;
-      color: gold;
-      margin-bottom: 20px;
+
+    .whatsapp-button:hover {
+      background: #1da851;
+      transform: scale(1.05);
     }
-    .section p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-    .depoimentos {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .depoimento {
-      background: #222;
-      padding: 20px;
-      border-radius: 10px;
-      font-style: italic;
-    }
-    #countdown {
-      font-size: 1.5rem;
-      color: red;
-      font-weight: bold;
-      margin: 20px 0;
-    }
-    footer {
-      background: #000;
-      text-align: center;
-      padding: 20px;
-      color: #777;
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px 15px;
+        padding: 30px 20px;
+      }
+      h1 {
+        font-size: 2.2em;
+      }
+      p, ul li {
+        font-size: 1em;
+      }
+      .cta-button {
+        font-size: 1.2em;
+        padding: 15px 25px;
+      }
+      .whatsapp-button {
+        font-size: 1em;
+        padding: 12px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Código da Alavancagem</h1>
-      <p>Multiplique sua banca e vire um trader profissional com técnicas exclusivas.</p>
-      <div id="countdown">Oferta termina em: 10:00</div>
-      <div class="buttons">
-        <a href="https://pay.hotmart.com/P99676603K?off=iw863u6p&checkoutMode=10">🔥 Comprar Agora</a>
-        <a href="https://wa.me/+5522992568259">📞 Fale Comigo</a>
-      </div>
-    </div>
-  </div>
+  <div class="background"></div>
+  <div class="overlay"></div>
 
-  <section class="section">
-    <h2>Por que adquirir o Código da Alavancagem?</h2>
-    <p>Com técnicas testadas e comprovadas, você aprenderá a alavancar bancas pequenas e prestar serviços como trader.</p>
-    <ul style="list-style: none; padding: 0;">
-      <li>✅ Acesso vitalício ao curso</li>
-      <li>✅ Estratégias simples e eficazes</li>
-      <li>✅ Suporte direto no WhatsApp</li>
+  <div class="container">
+    <h1>🚀 Código da Alavancagem</h1>
+
+    <p><span class="highlight">QUE BOM QUE VOCÊ CHEGOU ATÉ AQUI!</span><br />
+    O <strong>MTI</strong> é um produto completo, que você vai entender tudo sobre o mercado de opções binárias!</p>
+
+    <p><span class="highlight">MAS TENHO QUE TE OFERECER UMA SUPER OFERTA...</span></p>
+
+    <p>Que tal você entender técnicas de <strong>alavancagens de bancas</strong> e virar um <strong>trader profissional</strong>, até mesmo terceirizando seus serviços?<br />
+    <strong>NÃO SAIA DESSA PÁGINA PARA NÃO PERDER ESSA OPORTUNIDADE!</strong></p>
+
+    <p>Com o <strong>Código da Alavancagem</strong>, você aprende a aplicar <span class="highlight">técnicas exclusivas</span> para multiplicar seu capital com inteligência e segurança, mesmo começando com pouco dinheiro.<br />
+    É a <strong>chave para acelerar seus resultados</strong> e sair do básico.</p>
+
+    <ul>
+      <li>Estratégias de alavancagem testadas</li>
+      <li>Ideal para contas pequenas</li>
+      <li>Passo a passo simples e direto</li>
+      <li>Transforme conhecimento em lucro</li>
+      <li>Suporte e acesso vitalício</li>
     </ul>
 
     <div class="depoimentos">
-      <div class="depoimento">
-        "Com o Código da Alavancagem, consegui meus primeiros R$ 500 em uma semana!"
-        <br><strong>– João T.</strong>
-      </div>
-      <div class="depoimento">
-        "Hoje presto serviços como trader. Comecei com esse código!"
-        <br><strong>– Carlos M.</strong>
-      </div>
+      <div class="depoimento">“Com o Código da Alavancagem, consegui meus primeiros R$ 500 em uma semana!”<strong>– João T.</strong></div>
+      <div class="depoimento">“Aprendi a multiplicar minha banca com segurança. Valeu cada centavo.”<strong>– Marina R.</strong></div>
+      <div class="depoimento">“Hoje presto serviço como trader para pessoas. Comecei com esse código!”<strong>– Carlos M.</strong></div>
     </div>
 
-    <div id="hotmart-sales-funnel" style="margin-top: 40px;"></div>
-  </section>
+    <div id="countdown">Oferta termina em: 10:00</div>
 
-  <footer>
-    &copy; 2025 Código da Alavancagem. Todos os direitos reservados.
-  </footer>
+    <a href="https://pay.hotmart.com/P99676603K?off=iw863u6p&checkoutMode=10" class="cta-button" target="_blank" rel="noopener noreferrer">🔥 Última Chance!</a><br/>
 
-  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+    <a href="https://wa.me/+5522992568259" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+      📲 Caso tenha interesse em agendar uma alavancagem comigo, clique aqui!
+    </a>
+
+  </div>
+
   <script>
-    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
-
-    let timeLeft = 10 * 60;
+    let timeLeft = 10 * 60; // 10 minutos em segundos
     const countdownElement = document.getElementById('countdown');
 
     function updateCountdown() {
