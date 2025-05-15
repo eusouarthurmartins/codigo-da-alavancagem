@@ -31,22 +31,6 @@
       position: relative;
     }
 
-    /* Sombras douradas fortes nas laterais */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; bottom: 0;
-      left: 0; right: 0;
-      pointer-events: none;
-      z-index: 0;
-      background:
-        linear-gradient(to right, rgba(184,134,11,0.9) 0%, rgba(184,134,11,0) 10%),
-        linear-gradient(to left, rgba(184,134,11,0.9) 0%, rgba(184,134,11,0) 10%);
-      background-repeat: no-repeat;
-      background-position: left, right;
-      background-size: 80px 100%, 80px 100%;
-    }
-
     .background-image {
       position: fixed;
       top: 0;
@@ -109,16 +93,16 @@
       padding: 18px 30px;
       border-radius: 40px;
       text-decoration: none;
-      font-size: 1.6em; /* aumentado */
-      letter-spacing: 1.5px; /* aumentado */
+      font-size: 1.6em;
+      letter-spacing: 1.5px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 18px;
       box-shadow: 0 0 12px #b8860b99;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
-      width: 100%;  /* para ocupar toda a largura do container */
-      max-width: 600px; /* maximo 600px */
+      width: 100%;
+      max-width: 600px;
       animation: blink 3s infinite;
     }
 
@@ -134,4 +118,103 @@
     }
 
     .btn-link i {
-      font-size
+      font-size: 1.8em;
+      min-width: 28px;
+      text-align: center;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.5em;
+      }
+      .description {
+        font-size: 1em;
+      }
+      .btn-link {
+        font-size: 1.4em;
+        padding: 16px 25px;
+      }
+      .btn-link i {
+        font-size: 1.6em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img
+    src="assets/fundo-overlay.png"
+    alt="Imagem de fundo"
+    class="background-image"
+  />
+
+  <h1>Thurzin Trader</h1>
+
+  <div class="description">
+    Vivendo de OB!<br />
+    +7 no Digital<br />
+    Não te mando msg<br />
+    Cuidado com golpes
+  </div>
+
+  <div class="buttons-container">
+    <a
+      href="https://wa.me/+5522992568259"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fab fa-whatsapp"></i> WhatsApp</a>
+
+    <a
+      href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack="
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-chart-line"></i> Corretora</a>
+
+    <a
+      href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fab fa-tiktok"></i> TikTok</a>
+
+    <a
+      href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-graduation-cap"></i> MTI</a>
+
+    <a
+      href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-code"></i> Código da Alavancagem</a>
+
+    <a
+      href="https://t.me/+ouYsMCHzRRdhYTkx"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-comments"></i> Sala de Sinais</a>
+  </div>
+</body>
+</html>
