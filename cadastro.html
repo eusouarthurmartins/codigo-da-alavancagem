@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cadastro Thurzin Trader</title>
+  <title>Cadastro - Thurzin Trader</title>
 
   <!-- Font Awesome CDN -->
   <link
@@ -22,154 +22,71 @@
       height: 100%;
       font-family: 'Arial', sans-serif;
       background-color: #000;
-      color: #b8860b;
+      color: #ffd700;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 40px 20px;
+      overflow-x: hidden;
+      position: relative;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 3.5em;
       font-weight: 900;
-      color: #ffd700cc;
+      color: #fff8dc;
       text-shadow: 0 0 12px #ffd700aa, 0 0 24px #b8860b77;
-      margin-bottom: 20px;
+      margin: 40px 0 20px 0;
       letter-spacing: 3px;
-      text-align: center;
+      animation: pulse 2s infinite ease-in-out;
     }
 
-    form {
-      background: #111;
-      padding: 30px 25px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px #b8860b88;
-      max-width: 400px;
+    .form-container {
+      width: 95%;
+      max-width: 720px;
+      margin-bottom: 60px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 
+        -20px 0 60px rgba(255, 215, 0, 0.3), 
+        20px 0 60px rgba(255, 215, 0, 0.3);
+    }
+
+    iframe {
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    label {
-      color: #d4af37cc;
-      font-weight: 600;
-      font-size: 1.1em;
-    }
-
-    input[type="text"], input[type="tel"] {
-      padding: 12px 15px;
-      border-radius: 12px;
+      height: 800px;
       border: none;
-      font-size: 1.1em;
-      font-weight: 700;
-      background-color: #222;
-      color: #ffd700dd;
-      box-shadow: inset 0 0 10px #b8860b99;
-      transition: box-shadow 0.3s ease;
     }
 
-    input[type="text"]:focus, input[type="tel"]:focus {
-      outline: none;
-      box-shadow: 0 0 12px #ffd700ee;
-      background-color: #1a1a1a;
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.85;
+      }
     }
 
-    button {
-      background: linear-gradient(90deg, #000000, #b8860b);
-      color: #000;
-      font-weight: 700;
-      padding: 16px;
-      border-radius: 40px;
-      font-size: 1.4em;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-      border: none;
-      box-shadow: 0 0 18px #b8860bcc;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    button:hover {
-      background: linear-gradient(90deg, #b8860b, #000000);
-      box-shadow: 0 0 24px #ffd700cc;
-      transform: scale(1.05);
-    }
-
-    button:active {
-      transform: scale(0.95);
-      box-shadow: 0 0 8px #b8860bcc inset;
-    }
-
-    button i {
-      font-size: 1.6em;
-    }
-
-    .success-message {
-      margin-top: 20px;
-      font-size: 1.2em;
-      color: #d4af37cc;
-      font-weight: 700;
-      text-align: center;
-      display: none;
-      text-shadow: 0 0 8px #b8860bcc;
-    }
-
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       h1 {
-        font-size: 2.2em;
+        font-size: 2em;
       }
-      form {
-        padding: 25px 20px;
-      }
-      input[type="text"], input[type="tel"] {
-        font-size: 1em;
-      }
-      button {
-        font-size: 1.2em;
-        padding: 14px;
+
+      iframe {
+        height: 1000px;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Cadastro Thurzin Trader</h1>
 
-  <form id="cadastroForm">
-    <label for="nome">Nome Completo</label>
-    <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+  <h1>Cadastro VIP</h1>
 
-    <label for="whatsapp">WhatsApp</label>
-    <input type="tel" id="whatsapp" name="whatsapp" placeholder="+55 21 99999-9999" pattern="^\+?\d{8,15}$" required />
+  <div class="form-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfL8tw8F3z6hKhzJmN3U8hJJGGqjAkhX0Uyp9avU9MD1ks__w/viewform?embedded=true" loading="lazy">Carregando…</iframe>
+  </div>
 
-    <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
-
-    <div class="success-message" id="successMessage">Obrigado pelo cadastro! Entraremos em contato em breve.</div>
-  </form>
-
-  <script>
-    const form = document.getElementById('cadastroForm');
-    const successMessage = document.getElementById('successMessage');
-    const whatsappLink = "https://wa.me/5522992568259"; // Troque para seu número no formato internacional sem + e sem espaços
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      // Aqui você pode adicionar integração real com backend ou API
-
-      // Simula sucesso no envio
-      form.reset();
-      successMessage.style.display = 'block';
-
-      // Após 2 segundos redireciona para o WhatsApp
-      setTimeout(() => {
-        window.location.href = whatsappLink;
-      }, 2000);
-    });
-  </script>
 </body>
 </html>
