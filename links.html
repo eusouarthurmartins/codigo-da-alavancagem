@@ -31,36 +31,34 @@
       position: relative;
     }
 
-    /* Imagem central com sombra flutuante lateral */
-    .background-image {
+    #background-video {
       position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
       width: auto;
-      height: 100vh;
-      object-fit: contain;
-      object-position: center top;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.8;
-      background-color: #000;
+      height: auto;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(0.5);
+      /* Adiciona sombra lateral para efeito */
       box-shadow:
-        50px 0 60px 40px rgba(184, 134, 11, 0.7),
-        -50px 0 60px 40px rgba(184, 134, 11, 0.7);
+        inset 50px 0 80px 30px rgba(184, 134, 11, 0.7),
+        inset -50px 0 80px 30px rgba(184, 134, 11, 0.7);
       animation: floatShadow 6s ease-in-out infinite;
     }
 
     @keyframes floatShadow {
       0%, 100% {
         box-shadow:
-          50px 0 60px 40px rgba(184, 134, 11, 0.7),
-          -50px 0 60px 40px rgba(184, 134, 11, 0.7);
+          inset 50px 0 80px 30px rgba(184, 134, 11, 0.7),
+          inset -50px 0 80px 30px rgba(184, 134, 11, 0.7);
       }
       50% {
         box-shadow:
-          60px 0 70px 50px rgba(184, 134, 11, 0.9),
-          -60px 0 70px 50px rgba(184, 134, 11, 0.9);
+          inset 60px 0 90px 40px rgba(184, 134, 11, 0.9),
+          inset -60px 0 90px 40px rgba(184, 134, 11, 0.9);
       }
     }
 
@@ -73,7 +71,7 @@
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
     .description {
@@ -86,7 +84,7 @@
       font-weight: 600;
       text-shadow: 1px 1px 6px #b8860b88;
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
     .buttons-container {
@@ -96,7 +94,7 @@
       width: 90vw;
       max-width: 700px;
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
     .btn-link {
@@ -166,7 +164,20 @@
   </style>
 </head>
 <body>
-  <img src="assets/thurzin.png" alt="Thurzin Trader" class="background-image" />
+  <video
+    id="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source
+      src="https://cdn.videvo.net/videvo_files/video/free/2019-05/small_watermarked/190508_04_Candlestick_01_preview.webm"
+      type="video/webm"
+    />
+    Seu navegador não suporta vídeo em background.
+  </video>
 
   <h1>Thurzin Trader</h1>
 
