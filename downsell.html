@@ -5,67 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Oferta Especial - Última Oportunidade</title>
   <style>
+    /* Fundo com gráfico animado */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background-color: #000;
-      color: #fff;
-      background: linear-gradient(to bottom, #000 0%, #111 100%);
+      background-color: #f4f4f4;
+      position: relative;
+      overflow: hidden;
+      color: #222;
     }
+
+    /* Simulação de gráfico animado */
+    .background-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: url('https://i.ibb.co/VWvKWff/bg-candlestick.png') repeat-x;
+      opacity: 0.05;
+      animation: moveBackground 30s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveBackground {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
     .container {
       max-width: 800px;
       margin: 60px auto;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(255, 255, 255, 0.95);
       padding: 40px 30px;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
+
     h1 {
       font-size: 2.5em;
-      color: gold;
+      color: #d4af37;
       margin-bottom: 20px;
     }
+
     p {
       font-size: 1.2em;
       line-height: 1.6;
       margin-bottom: 20px;
     }
+
     .highlight {
-      color: gold;
+      color: #d4af37;
       font-weight: bold;
     }
+
     #hotmart-sales-funnel {
       margin-top: 40px;
     }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>🎯 Última Oportunidade!</h1>
-    <p>Sabemos que você está em dúvida… então preparamos uma <span class="highlight">condição especial</span> para você não sair de mãos vazias.</p>
-    <p>Você pode garantir acesso com um <span class="highlight">desconto exclusivo</span> ou até uma versão reduzida para começar com o pé direito no mercado de opções binárias.</p>
-    <p><strong>Não perca essa chance! Ela só aparece uma vez.</strong></p>
 
-    <!-- HOTMART - Sales Funnel Widget -->
-    <div id="hotmart-sales-funnel"></div>
+    .whatsapp-section {
+      margin-top: 40px;
+    }
 
-    <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
-    <script>
-      checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
-    </script>
-    <!-- HOTMART - Sales Funnel Widget -->
-  </div>
-</body>
-</html>
+    .whatsapp-section p {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 20px;
+    }
 
-<p style="margin-top: 30px; font-size: 1.2em; color: #fff;">
-  Caso você realmente não queira essa oferta, convido você para conhecer meu trabalho e quem sabe.. trabalhar comigo!
-</p>
-
-<a href="https://wa.me/+5522992568259" target="_blank" 
-   style="
+    .whatsapp-button {
       display: inline-block;
       background-color: #25D366;
       color: white;
@@ -76,9 +88,52 @@
       font-size: 1.3em;
       box-shadow: 0 0 10px #25D366aa;
       transition: background-color 0.3s ease;
-    "
-   onmouseover="this.style.backgroundColor='#1DA851'"
-   onmouseout="this.style.backgroundColor='#25D366'">
-  📲 Conversar no WhatsApp
-</a>
+    }
 
+    .whatsapp-button:hover {
+      background-color: #1DA851;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .whatsapp-button {
+        font-size: 1.1em;
+        padding: 12px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fundo animado -->
+  <div class="background-animation"></div>
+
+  <div class="container">
+    <h1>🎯 Última Oportunidade!</h1>
+    <p>Sabemos que você está em dúvida… então preparamos uma <span class="highlight">condição especial</span> para você não sair de mãos vazias.</p>
+    <p>Você pode garantir acesso com um <span class="highlight">desconto exclusivo</span> ou até uma versão reduzida para começar com o pé direito no mercado de opções binárias.</p>
+    <p><strong>Não perca essa chance! Ela só aparece uma vez.</strong></p>
+
+    <!-- HOTMART - Sales Funnel Widget -->
+    <div id="hotmart-sales-funnel"></div>
+    <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+    <script>
+      checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
+    </script>
+
+    <!-- WhatsApp -->
+    <div class="whatsapp-section">
+      <p>Caso você realmente não queira essa oferta, convido você para conhecer meu trabalho e quem sabe… trabalhar comigo!</p>
+      <a href="https://wa.me/+5522992568259" target="_blank" class="whatsapp-button">
+        📲 Conversar no WhatsApp
+      </a>
+    </div>
+  </div>
+</body>
+</html>
