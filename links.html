@@ -39,27 +39,16 @@
       min-height: 100%;
       width: auto;
       height: auto;
-      z-index: -1;
+      z-index: -2;
       object-fit: cover;
-      filter: brightness(0.5);
-      /* Adiciona sombra lateral para efeito */
-      box-shadow:
-        inset 50px 0 80px 30px rgba(184, 134, 11, 0.7),
-        inset -50px 0 80px 30px rgba(184, 134, 11, 0.7);
-      animation: floatShadow 6s ease-in-out infinite;
+      /* filter removido para brilho natural */
     }
 
-    @keyframes floatShadow {
-      0%, 100% {
-        box-shadow:
-          inset 50px 0 80px 30px rgba(184, 134, 11, 0.7),
-          inset -50px 0 80px 30px rgba(184, 134, 11, 0.7);
-      }
-      50% {
-        box-shadow:
-          inset 60px 0 90px 40px rgba(184, 134, 11, 0.9),
-          inset -60px 0 90px 40px rgba(184, 134, 11, 0.9);
-      }
+    #overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.3); /* preta com 30% transparência */
+      z-index: -1;
     }
 
     h1 {
@@ -70,8 +59,6 @@
       margin-bottom: 10px;
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
-      position: relative;
-      z-index: 1;
     }
 
     .description {
@@ -83,8 +70,6 @@
       max-width: 320px;
       font-weight: 600;
       text-shadow: 1px 1px 6px #b8860b88;
-      position: relative;
-      z-index: 1;
     }
 
     .buttons-container {
@@ -92,137 +77,45 @@
       flex-direction: column;
       gap: 18px;
       width: 90vw;
-      max-width: 700px;
-      position: relative;
-      z-index: 1;
+      max-width: 600px;
     }
 
     .btn-link {
       background-color: #b8860b;
       color: #000;
       font-weight: 700;
-      padding: 18px 30px;
+      padding: 18px 25px;
       border-radius: 40px;
       text-decoration: none;
-      font-size: 1.5em;
+      font-size: 1.4em;
       letter-spacing: 1.2px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 18px;
-      box-shadow: 0 0 15px #b8860b99;
+      box-shadow: 0 0 12px #b8860b99;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       min-width: 100%;
-      animation: pulse 4s ease-in-out infinite;
+      animation: pulse 3.5s infinite ease-in-out; /* piscar suave */
     }
 
     .btn-link:hover {
       background-color: #d6af2b;
-      box-shadow: 0 0 22px #d6af2bcc;
+      box-shadow: 0 0 18px #d6af2bcc;
       transform: scale(1.05);
     }
 
     .btn-link:active {
       transform: scale(0.95);
-      box-shadow: 0 0 8px #b8860bcc inset;
+      box-shadow: 0 0 6px #b8860bcc inset;
     }
 
     .btn-link i {
-      font-size: 1.8em;
-      min-width: 28px;
+      font-size: 1.6em;
+      min-width: 24px;
       text-align: center;
-      animation: pulse 4s ease-in-out infinite;
+      animation: pulse 3.5s infinite ease-in-out;
     }
 
     @keyframes pulse {
       0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: scale(1.1);
-        opacity: 0.85;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 2.5em;
-      }
-      .description {
-        font-size: 1em;
-        max-width: 280px;
-      }
-      .btn-link {
-        font-size: 1.3em;
-        padding: 16px 25px;
-      }
-      .btn-link i {
-        font-size: 1.6em;
-      }
-    }
-  </style>
-</head>
-<body>
-  <video
-    id="background-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-  >
-    <source
-      src="https://cdn.videvo.net/videvo_files/video/free/2019-05/small_watermarked/190508_04_Candlestick_01_preview.webm"
-      type="video/webm"
-    />
-    Seu navegador não suporta vídeo em background.
-  </video>
-
-  <h1>Thurzin Trader</h1>
-
-  <div class="description">
-    Vivendo de OB!<br />
-    +7 no Digital<br />
-    Não te mando msg<br />
-    Cuidado com golpes
-  </div>
-
-  <div class="buttons-container">
-    <a
-      href="https://wa.me/+5522992568259"
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fab fa-whatsapp"></i> WhatsApp</a>
-
-    <a
-      href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10"
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fas fa-graduation-cap"></i> MTI</a>
-
-    <a
-      href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10"
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fas fa-bolt"></i> Código da Alavancagem</a>
-
-    <a
-      href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack="
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fas fa-chart-line"></i> Corretora</a>
-
-    <a
-      href="https://t.me/+ouYsMCHzRRdhYTkx"
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fas fa-comment-alt"></i> Sala de Sinais</a>
-  </div>
-</body>
-</html>
