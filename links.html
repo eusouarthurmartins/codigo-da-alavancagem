@@ -135,9 +135,14 @@
       }
     }
 
+    /* Suavizando o "piscar" com brilho */
     @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.85; } /* menos opaco e mais suave */
+      0%, 100% {
+        filter: brightness(1);
+      }
+      50% {
+        filter: brightness(1.1);
+      }
     }
 
     @media (max-width: 480px) {
