@@ -6,7 +6,10 @@
   <title>Thurzin Trader - Links</title>
 
   <!-- Font Awesome CDN -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
 
   <style>
     * {
@@ -18,8 +21,8 @@
     body, html {
       height: 100%;
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(180deg, #000000 0%, #1a0000 100%);
-      color: #fff;
+      background: linear-gradient(135deg, #1b1b1b, #111111);
+      color: #b8860b;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -38,8 +41,12 @@
       object-position: center top;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.9;
-      filter: drop-shadow(0 0 50px #e50914);
+      opacity: 0.8;
+      background-color: transparent;
+      /* sombras douradas nas laterais */
+      box-shadow:
+        inset 20px 0 30px 10px rgba(184, 134, 11, 0.9),
+        inset -20px 0 30px 10px rgba(184, 134, 11, 0.9);
     }
 
     @media (max-width: 480px) {
@@ -58,11 +65,11 @@
     }
 
     h1 {
-      font-size: 3.8em;
+      font-size: 3.5em;
       font-weight: 900;
-      color: #fff;
-      text-shadow: 0 0 15px #e50914cc;
-      margin: 50px 0 10px;
+      color: #ffd700;
+      text-shadow: 0 0 12px #ffd700aa, 0 0 24px #b8860b77;
+      margin-bottom: 40px; /* aumentado para afastar do texto */
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
     }
@@ -70,10 +77,10 @@
     .description {
       font-size: 1.3em;
       line-height: 1.5em;
-      color: #ddd;
-      margin-bottom: 60px;
+      color: #ffd966;
+      margin-bottom: 60px; /* aumentado para afastar dos botões */
       font-weight: 600;
-      text-shadow: 1px 1px 6px #111;
+      text-shadow: 1px 1px 6px #b8860b88;
     }
 
     .buttons-container {
@@ -84,7 +91,7 @@
     }
 
     .btn-link {
-      background: linear-gradient(45deg, #e50914, #ff1a1a);
+      background: linear-gradient(45deg, #000000, #e50914);
       color: #fff;
       font-weight: 700;
       padding: 18px 30px;
@@ -104,7 +111,7 @@
     }
 
     .btn-link:hover {
-      background: linear-gradient(45deg, #ff1a1a, #ff4d4d);
+      background: linear-gradient(45deg, #1a1a1a, #ff1a1a);
       box-shadow: 0 0 20px #ff1a1aaa;
       transform: scale(1.05);
     }
@@ -140,11 +147,9 @@
     @media (max-width: 480px) {
       h1 {
         font-size: 2.5em;
-        margin-top: 60px;
       }
       .description {
         font-size: 1em;
-        margin-bottom: 40px;
       }
       .btn-link {
         font-size: 1.4em;
@@ -157,7 +162,11 @@
   </style>
 </head>
 <body>
-  <img src="assets/fundo-overlay.png" alt="Imagem de fundo" class="background-image" />
+  <img
+    src="assets/fundo-overlay.png"
+    alt="Imagem de fundo"
+    class="background-image"
+  />
 
   <h1>Thurzin Trader</h1>
 
@@ -169,29 +178,47 @@
   </div>
 
   <div class="buttons-container">
-    <a href="https://wa.me/+5522992568259" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
+    <a
+      href="https://wa.me/+5522992568259"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fab fa-whatsapp"></i> WhatsApp</a>
 
-    <a href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack=" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fas fa-chart-line"></i> Corretora
-    </a>
+    <a
+      href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack="
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-chart-line"></i> Corretora</a>
 
-    <a href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fab fa-tiktok"></i> TikTok
-    </a>
+    <a
+      href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fab fa-tiktok"></i> TikTok</a>
 
-    <a href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fas fa-graduation-cap"></i> MTI
-    </a>
+    <a
+      href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-graduation-cap"></i> MTI</a>
 
-    <a href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fas fa-bolt"></i> Código da Alavancagem
-    </a>
+    <a
+      href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-bolt"></i> Código da Alavancagem</a>
 
-    <a href="https://t.me/+ouYsMCHzRRdhYTkx" target="_blank" class="btn-link" rel="noopener noreferrer">
-      <i class="fas fa-comments"></i> Sala de Sinais
-    </a>
+    <a
+      href="https://t.me/+ouYsMCHzRRdhYTkx"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-comments"></i> Sala de Sinais</a>
   </div>
 </body>
 </html>
