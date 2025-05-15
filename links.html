@@ -31,65 +31,61 @@
       position: relative;
     }
 
-    /* Container centralizado para imagem + sombras */
     .background-wrapper {
       position: fixed;
-      top: 0; 
-      left: 50%;
-      transform: translateX(-50%);
+      top: 0;
+      left: 0;
+      width: 100vw;
       height: 100vh;
       display: flex;
-      align-items: center; /* centraliza verticalmente a imagem e sombras */
-      gap: 0;
-      padding: 0 6px; /* um pouquinho de espaçamento lateral */
+      align-items: center;
+      justify-content: center;
       z-index: 0;
       pointer-events: none;
-      background-color: transparent;
-      max-width: 100vw;
-      box-sizing: content-box;
+      padding: 0 12px;
+      box-sizing: border-box;
+      background-color: #000;
     }
 
-    /* Sombras douradas nas laterais */
     .side-shadow {
       width: 40px;
       height: 100vh;
-      border-radius: 12px;
-      box-shadow: 0 0 50px 22px #b8860b;
-      filter: blur(18px);
-      opacity: 1;
-      margin: 0 6px;
+      box-shadow: 0 0 60px 24px #b8860b;
+      filter: blur(20px);
+      border-radius: 20px;
+      margin: 0 12px;
       flex-shrink: 0;
     }
 
-    /* Imagem com altura 100% da viewport e largura automática para manter proporção */
     .background-image {
       height: 100vh;
-      width: auto;
-      max-width: calc(100vw - 120px); /* para garantir que caiba junto com as sombras laterais */
+      max-width: calc(100vw - 128px);
       object-fit: contain;
-      object-position: center center;
-      border-radius: 8px;
-      box-shadow:
-        0 0 40px 6px #b8860b99,
-        0 0 80px 16px #b8860bcc;
-      flex-shrink: 0;
+      object-position: center top;
+      border-radius: 24px;
+      filter: drop-shadow(0 0 4px #b8860b99);
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      pointer-events: none;
     }
 
     @media (max-width: 480px) {
       .background-wrapper {
-        height: 50vh;
+        height: 100vh; /* altura total no mobile */
         padding: 0 3px;
       }
       .side-shadow {
         width: 20px;
-        height: 50vh;
+        height: 100vh;
         box-shadow: 0 0 30px 12px #b8860b;
         filter: blur(12px);
         border-radius: 10px;
         margin: 0 4px;
       }
       .background-image {
-        height: 50vh;
+        height: 100vh;
         max-width: calc(100vw - 56px);
       }
     }
@@ -100,7 +96,6 @@
       text-align: center;
       max-width: 600px;
       width: 90vw;
-      margin-top: 20px;
     }
 
     h1 {
@@ -201,13 +196,12 @@
   </style>
 </head>
 <body>
-  <div class="background-wrapper" aria-hidden="true">
+  <div class="background-wrapper">
     <div class="side-shadow"></div>
     <img
       src="assets/fundo-overlay.png"
       alt="Imagem de fundo"
       class="background-image"
-      draggable="false"
     />
     <div class="side-shadow"></div>
   </div>
