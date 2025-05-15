@@ -31,24 +31,59 @@
       position: relative;
     }
 
-    .background-image {
+    /* Container for the background and side shadows */
+    .background-wrapper {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      object-fit: contain;
-      object-position: center top;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      padding-top: 20px;
       background-color: #000;
     }
 
+    .side-shadow {
+      width: 50px;
+      height: 80vh;
+      box-shadow: 0 0 40px 20px #b8860b;
+      filter: blur(12px);
+      opacity: 1;
+      border-radius: 12px;
+    }
+
+    .background-image {
+      width: auto;
+      max-width: 60vw;
+      height: 80vh;
+      object-fit: contain;
+      object-position: center top;
+      border-radius: 8px;
+      box-shadow:
+        0 0 40px 6px #b8860b99,
+        0 0 80px 16px #b8860bcc;
+    }
+
     @media (max-width: 480px) {
+      .background-wrapper {
+        gap: 10px;
+        padding-top: 10px;
+      }
+      .side-shadow {
+        width: 25px;
+        height: 50vh;
+        box-shadow: 0 0 20px 10px #b8860b;
+        filter: blur(8px);
+        border-radius: 8px;
+      }
       .background-image {
-        object-fit: cover;
-        object-position: center center;
+        max-width: 90vw;
+        height: 50vh;
       }
     }
 
@@ -58,6 +93,7 @@
       text-align: center;
       max-width: 600px;
       width: 90vw;
+      margin-top: 20px;
     }
 
     h1 {
@@ -103,7 +139,7 @@
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       width: 100%;
       max-width: 600px;
-      animation: blink 3s infinite;
+      animation: blink 5s infinite; /* Piscar mais suave e lento */
     }
 
     .btn-link:hover {
@@ -121,7 +157,7 @@
       font-size: 1.8em;
       min-width: 28px;
       text-align: center;
-      animation: pulse 2s infinite ease-in-out;
+      animation: pulse 3s infinite ease-in-out; /* Mais lento */
     }
 
     @keyframes pulse {
@@ -137,7 +173,7 @@
 
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
+      50% { opacity: 0.7; } /* Menos intensidade de piscar */
     }
 
     @media (max-width: 480px) {
@@ -158,11 +194,15 @@
   </style>
 </head>
 <body>
-  <img
-    src="assets/fundo-overlay.png"
-    alt="Imagem de fundo"
-    class="background-image"
-  />
+  <div class="background-wrapper">
+    <div class="side-shadow"></div>
+    <img
+      src="assets/fundo-overlay.png"
+      alt="Imagem de fundo"
+      class="background-image"
+    />
+    <div class="side-shadow"></div>
+  </div>
 
   <h1>Thurzin Trader</h1>
 
@@ -207,7 +247,7 @@
       target="_blank"
       class="btn-link"
       rel="noopener noreferrer"
-    ><i class="fas fa-bolt"></i> Código da Alavancagem</a>
+    ><i class="fas fa-code"></i> Código da Alavancagem</a>
 
     <a
       href="https://t.me/+ouYsMCHzRRdhYTkx"
