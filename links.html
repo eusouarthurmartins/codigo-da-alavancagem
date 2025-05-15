@@ -31,25 +31,28 @@
       position: relative;
     }
 
-    /* Container fixo para a imagem de fundo e sombras laterais */
+    /* Container centralizado para imagem + sombras */
     .background-wrapper {
       position: fixed;
-      top: 0; left: 50%;
+      top: 0; 
+      left: 50%;
       transform: translateX(-50%);
       height: 100vh;
       display: flex;
-      align-items: flex-start;
+      align-items: center; /* centraliza verticalmente a imagem e sombras */
       gap: 0;
-      padding-top: 20px;
+      padding: 0 6px; /* um pouquinho de espaçamento lateral */
       z-index: 0;
       pointer-events: none;
       background-color: transparent;
+      max-width: 100vw;
+      box-sizing: content-box;
     }
 
-    /* Sombras douradas só nas laterais, separadas da imagem */
+    /* Sombras douradas nas laterais */
     .side-shadow {
       width: 40px;
-      height: 80vh;
+      height: 100vh;
       border-radius: 12px;
       box-shadow: 0 0 50px 22px #b8860b;
       filter: blur(18px);
@@ -58,12 +61,13 @@
       flex-shrink: 0;
     }
 
+    /* Imagem com altura 100% da viewport e largura automática para manter proporção */
     .background-image {
+      height: 100vh;
       width: auto;
-      max-width: 60vw;
-      max-height: 80vh;
+      max-width: calc(100vw - 120px); /* para garantir que caiba junto com as sombras laterais */
       object-fit: contain;
-      object-position: center top;
+      object-position: center center;
       border-radius: 8px;
       box-shadow:
         0 0 40px 6px #b8860b99,
@@ -74,7 +78,7 @@
     @media (max-width: 480px) {
       .background-wrapper {
         height: 50vh;
-        padding-top: 10px;
+        padding: 0 3px;
       }
       .side-shadow {
         width: 20px;
@@ -85,8 +89,8 @@
         margin: 0 4px;
       }
       .background-image {
-        max-width: 90vw;
-        max-height: 50vh;
+        height: 50vh;
+        max-width: calc(100vw - 56px);
       }
     }
 
