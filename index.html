@@ -10,25 +10,19 @@
       padding: 0;
       font-family: Arial, sans-serif;
       color: #fff;
-      /* Fundo com gráfico de candles escuro e animação */
-      background: url('https://cdn.pixabay.com/photo/2017/08/30/12/45/stock-market-2692356_1280.jpg') repeat-x;
-      background-size: cover;
-      animation: moveBackground 30s linear infinite;
+      background: #000;
+      /* Sombra lateral */
+      box-shadow: inset 100px 0 150px -80px #222, inset -100px 0 150px -80px #222;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 10px;
     }
-
-    @keyframes moveBackground {
-      from {
-        background-position: 0 0;
-      }
-      to {
-        background-position: 1000px 0;
-      }
-    }
-
     .container {
       background-color: rgba(0, 0, 0, 0.85);
       max-width: 800px;
-      margin: 60px auto;
+      width: 100%;
       padding: 40px 30px;
       text-align: center;
       border-radius: 12px;
@@ -88,7 +82,7 @@
       margin: 25px 0 35px 0;
       text-shadow: 0 0 5px #ff0000;
     }
-    .cta-button, .whatsapp-button {
+    .whatsapp-button {
       display: inline-block;
       background: gold;
       color: #000;
@@ -97,17 +91,16 @@
       border-radius: 8px;
       font-size: 1.3em;
       text-decoration: none;
-      margin: 15px 15px 0 15px;
+      margin: 15px;
       box-shadow: 0 0 10px #ffd700aa;
       transition: background 0.3s ease, box-shadow 0.3s ease;
     }
-    .cta-button:hover, .whatsapp-button:hover {
+    .whatsapp-button:hover {
       background: #e6c200;
       box-shadow: 0 0 20px #e6c200cc;
     }
     @media (max-width: 600px) {
       .container {
-        margin: 30px 10px;
         padding: 30px 15px;
       }
       h1 {
@@ -116,7 +109,7 @@
       p, ul li {
         font-size: 1em;
       }
-      .cta-button, .whatsapp-button {
+      .whatsapp-button {
         font-size: 1.1em;
         padding: 14px 25px;
       }
@@ -149,12 +142,11 @@
     <div class="depoimentos">
       <div class="depoimento">“Com o Código da Alavancagem, consegui meus primeiros R$ 500 em uma semana!”<strong>– João T.</strong></div>
       <div class="depoimento">“Aprendi a multiplicar minha banca com segurança. Valeu cada centavo.”<strong>– Marina R.</strong></div>
-      <div class="depoimento">“Hoje presto serviço como trader para empresas. Comecei com esse código!”<strong>– Carlos M.</strong></div>
+      <div class="depoimento">“Hoje presto serviço como trader para pessoas. Comecei com esse código!”<strong>– Carlos M.</strong></div>
     </div>
 
     <div id="countdown">Oferta termina em: 10:00</div>
 
-    <a href="https://pay.hotmart.com/P99676603K?off=iw863u6p&checkoutMode=10" class="cta-button">🔥 Última Chance!</a>
     <a href="https://wa.me/+5522992568259" class="whatsapp-button">📲 Agende uma alavancagem comigo!</a>
 
     <div id="hotmart-sales-funnel" style="margin-top: 40px;"></div>
