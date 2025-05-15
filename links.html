@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thurzin Trader - Links</title>
 
-  <!-- Font Awesome CDN para ícones -->
+  <!-- Font Awesome CDN -->
   <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     rel="stylesheet"
@@ -45,10 +45,11 @@
     }
 
     h1 {
-      font-size: 3.5em;
+      font-size: 3.8em;
       font-weight: 900;
-      text-shadow: 2px 2px 8px #d6af2b;
-      margin-bottom: 8px;
+      color: #ffd700;
+      text-shadow: 0 0 12px #ffd700aa, 0 0 24px #b8860b77;
+      margin-bottom: 10px;
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
     }
@@ -62,7 +63,6 @@
       max-width: 320px;
       font-weight: 600;
       text-shadow: 1px 1px 6px #b8860b88;
-      font-family: 'Arial', sans-serif;
     }
 
     .buttons-container {
@@ -87,7 +87,6 @@
       justify-content: center;
       gap: 18px;
       box-shadow: 0 0 12px #b8860b99;
-      user-select: none;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       min-width: 100%;
     }
@@ -107,6 +106,18 @@
       font-size: 1.6em;
       min-width: 24px;
       text-align: center;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+      }
     }
 
     @media (max-width: 480px) {
@@ -158,37 +169,35 @@
       target="_blank"
       class="btn-link"
       rel="noopener noreferrer"
-      ><i class="fab fa-whatsapp"></i> WhatsApp</a
-    >
+    ><i class="fab fa-whatsapp"></i> WhatsApp</a>
+
     <a
       href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack="
       target="_blank"
       class="btn-link"
       rel="noopener noreferrer"
-      ><i class="fas fa-chart-line"></i> Corretora</a
-    >
+    ><i class="fas fa-chart-line"></i> Corretora</a>
+
     <a
       href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc"
       target="_blank"
       class="btn-link"
       rel="noopener noreferrer"
-      ><i class="fab fa-tiktok"></i> TikTok</a
-    >
+    ><i class="fab fa-tiktok"></i> TikTok</a>
+
     <a
       href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10"
       target="_blank"
       class="btn-link"
       rel="noopener noreferrer"
-      ><i class="fas fa-graduation-cap"></i> MTI</a
-    >
+    ><i class="fas fa-graduation-cap"></i> MTI</a>
+
     <a
       href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10"
       target="_blank"
       class="btn-link"
       rel="noopener noreferrer"
-      ><i class="fas fa-code"></i> Código da Alavancagem</a
-    >
+    ><i class="fas fa-code"></i> Código da Alavancagem</a>
   </div>
 </body>
 </html>
-
