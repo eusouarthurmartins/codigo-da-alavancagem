@@ -31,7 +31,7 @@
       position: relative;
     }
 
-    /* Imagem de fundo centralizada com sombra flutuante */
+    /* Imagem central com sombra flutuante lateral */
     .background-image {
       position: fixed;
       top: 0;
@@ -46,21 +46,21 @@
       opacity: 0.8;
       background-color: #000;
       box-shadow:
-        20px 0 30px 15px rgba(184, 134, 11, 0.7),
-        -20px 0 30px 15px rgba(184, 134, 11, 0.7);
-      animation: floatShadow 4s ease-in-out infinite;
+        50px 0 60px 40px rgba(184, 134, 11, 0.7),
+        -50px 0 60px 40px rgba(184, 134, 11, 0.7);
+      animation: floatShadow 6s ease-in-out infinite;
     }
 
     @keyframes floatShadow {
       0%, 100% {
         box-shadow:
-          20px 0 30px 15px rgba(184, 134, 11, 0.7),
-          -20px 0 30px 15px rgba(184, 134, 11, 0.7);
+          50px 0 60px 40px rgba(184, 134, 11, 0.7),
+          -50px 0 60px 40px rgba(184, 134, 11, 0.7);
       }
       50% {
         box-shadow:
-          30px 0 40px 20px rgba(184, 134, 11, 0.9),
-          -30px 0 40px 20px rgba(184, 134, 11, 0.9);
+          60px 0 70px 50px rgba(184, 134, 11, 0.9),
+          -60px 0 70px 50px rgba(184, 134, 11, 0.9);
       }
     }
 
@@ -73,7 +73,7 @@
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
       position: relative;
-      z-index: 10;
+      z-index: 2;
     }
 
     .description {
@@ -86,7 +86,7 @@
       font-weight: 600;
       text-shadow: 1px 1px 6px #b8860b88;
       position: relative;
-      z-index: 10;
+      z-index: 2;
     }
 
     .buttons-container {
@@ -94,50 +94,46 @@
       flex-direction: column;
       gap: 18px;
       width: 90vw;
-      max-width: 600px;
+      max-width: 700px;
       position: relative;
-      z-index: 10;
+      z-index: 2;
     }
 
     .btn-link {
       background-color: #b8860b;
       color: #000;
       font-weight: 700;
-      padding: 18px 25px;
+      padding: 18px 30px;
       border-radius: 40px;
       text-decoration: none;
-      font-size: 1.4em;
+      font-size: 1.5em;
       letter-spacing: 1.2px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 18px;
-      box-shadow: 0 0 12px #b8860b99;
+      box-shadow: 0 0 15px #b8860b99;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       min-width: 100%;
-      animation: pulse 2s infinite ease-in-out;
+      animation: pulse 4s ease-in-out infinite;
     }
 
     .btn-link:hover {
       background-color: #d6af2b;
-      box-shadow: 0 0 18px #d6af2bcc;
+      box-shadow: 0 0 22px #d6af2bcc;
       transform: scale(1.05);
     }
 
     .btn-link:active {
       transform: scale(0.95);
-      box-shadow: 0 0 6px #b8860bcc inset;
+      box-shadow: 0 0 8px #b8860bcc inset;
     }
 
     .btn-link i {
-      font-size: 1.6em;
-      min-width: 24px;
+      font-size: 1.8em;
+      min-width: 28px;
       text-align: center;
-    }
-
-    /* Ícone maior pro botão Código da Alavancagem */
-    .btn-link.codigo i {
-      font-size: 2em;
+      animation: pulse 4s ease-in-out infinite;
     }
 
     @keyframes pulse {
@@ -146,8 +142,8 @@
         opacity: 1;
       }
       50% {
-        transform: scale(1.2);
-        opacity: 0.8;
+        transform: scale(1.1);
+        opacity: 0.85;
       }
     }
 
@@ -160,20 +156,17 @@
         max-width: 280px;
       }
       .btn-link {
-        font-size: 1.2em;
-        padding: 16px 20px;
+        font-size: 1.3em;
+        padding: 16px 25px;
       }
       .btn-link i {
-        font-size: 1.4em;
-      }
-      .btn-link.codigo i {
         font-size: 1.6em;
       }
     }
   </style>
 </head>
 <body>
-  <img src="assets/fundo-overlay.png" alt="Fundo" class="background-image" />
+  <img src="assets/thurzin.png" alt="Thurzin Trader" class="background-image" />
 
   <h1>Thurzin Trader</h1>
 
@@ -193,20 +186,6 @@
     ><i class="fab fa-whatsapp"></i> WhatsApp</a>
 
     <a
-      href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack="
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fas fa-chart-line"></i> Corretora</a>
-
-    <a
-      href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc"
-      target="_blank"
-      class="btn-link"
-      rel="noopener noreferrer"
-    ><i class="fab fa-tiktok"></i> TikTok</a>
-
-    <a
       href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10"
       target="_blank"
       class="btn-link"
@@ -216,16 +195,23 @@
     <a
       href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10"
       target="_blank"
-      class="btn-link codigo"
+      class="btn-link"
       rel="noopener noreferrer"
     ><i class="fas fa-bolt"></i> Código da Alavancagem</a>
+
+    <a
+      href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack="
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-chart-line"></i> Corretora</a>
 
     <a
       href="https://t.me/+ouYsMCHzRRdhYTkx"
       target="_blank"
       class="btn-link"
       rel="noopener noreferrer"
-    ><i class="fas fa-comments"></i> Sala de Sinais</a>
+    ><i class="fas fa-comment-alt"></i> Sala de Sinais</a>
   </div>
 </body>
 </html>
