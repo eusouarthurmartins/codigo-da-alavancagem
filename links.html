@@ -43,10 +43,10 @@
       pointer-events: none;
       opacity: 0.8;
       background-color: transparent;
-      /* sombras douradas nas laterais */
+      /* bordas com gradiente estilo Netflix */
       box-shadow:
-        inset 20px 0 30px 10px rgba(184, 134, 11, 0.9),
-        inset -20px 0 30px 10px rgba(184, 134, 11, 0.9);
+        inset 25px 0 40px 12px #e50914,
+        inset -25px 0 40px 12px #e50914;
     }
 
     @media (max-width: 480px) {
@@ -64,23 +64,36 @@
       width: 90vw;
     }
 
+    /* Gradiente estilo Netflix para o título */
     h1 {
       font-size: 3.5em;
       font-weight: 900;
-      color: #ffd700;
-      text-shadow: 0 0 12px #ffd700aa, 0 0 24px #b8860b77;
-      margin-bottom: 40px; /* aumentado para afastar do texto */
+      background: linear-gradient(90deg, #e50914, #7a0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      margin-bottom: 40px;
       letter-spacing: 3px;
       font-family: 'Netflix Sans', Arial, sans-serif;
+      text-shadow:
+        0 0 6px #e50914aa,
+        0 0 12px #7a000088;
     }
 
+    /* Gradiente estilo Netflix para a descrição */
     .description {
       font-size: 1.3em;
       line-height: 1.5em;
-      color: #ffd966;
-      margin-bottom: 60px; /* aumentado para afastar dos botões */
+      background: linear-gradient(90deg, #e50914cc, #7a000099);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      margin-bottom: 60px;
       font-weight: 600;
-      text-shadow: 1px 1px 6px #b8860b88;
+      text-shadow:
+        1px 1px 4px #7a000088;
     }
 
     .buttons-container {
