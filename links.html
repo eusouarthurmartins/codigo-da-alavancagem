@@ -20,7 +20,6 @@
 
     body, html {
       height: 100%;
-      min-height: 100vh;
       font-family: 'Arial', sans-serif;
       background-color: #000;
       color: #b8860b;
@@ -32,39 +31,25 @@
       position: relative;
     }
 
-    /* Sombras douradas só nas laterais */
-    body::before, body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      width: 50px;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-      box-shadow: 0 0 40px 30px #b8860b;
-      background: transparent;
-    }
-
-    body::before {
-      left: 0;
-    }
-
-    body::after {
-      right: 0;
-    }
-
     .background-image {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      object-fit: cover;  /* cobre toda área da tela sem distorcer */
-      object-position: center center;
-      z-index: -1; /* atrás do conteúdo */
+      object-fit: contain;
+      object-position: center top;
+      z-index: 0;
       pointer-events: none;
-      opacity: 0.85;
+      opacity: 0.8;
       background-color: #000;
+    }
+
+    @media (max-width: 480px) {
+      .background-image {
+        object-fit: cover;
+        object-position: center center;
+      }
     }
 
     h1, .description, .buttons-container {
@@ -108,16 +93,16 @@
       padding: 18px 30px;
       border-radius: 40px;
       text-decoration: none;
-      font-size: 1.6em;
-      letter-spacing: 1.5px;
+      font-size: 1.6em; /* aumentado */
+      letter-spacing: 1.5px; /* aumentado */
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 18px;
       box-shadow: 0 0 12px #b8860b99;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
-      width: 100%;
-      max-width: 600px;
+      width: 100%;  /* para ocupar toda a largura do container */
+      max-width: 600px; /* maximo 600px */
       animation: blink 3s infinite;
     }
 
@@ -133,7 +118,7 @@
     }
 
     .btn-link i {
-      font-size: 1.8em;
+      font-size: 1.8em; /* aumentado */
       min-width: 28px;
       text-align: center;
       animation: pulse 2s infinite ease-in-out;
