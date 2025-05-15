@@ -31,7 +31,7 @@
       position: relative;
     }
 
-    /* Sombra dourada forte e próxima das bordas */
+    /* Sombras douradas fortes nas laterais */
     body::before {
       content: '';
       position: fixed;
@@ -40,10 +40,11 @@
       pointer-events: none;
       z-index: 0;
       background:
-        linear-gradient(to right, rgba(184,134,11,0.9) 0%, transparent 5%),
-        linear-gradient(to left, rgba(184,134,11,0.9) 0%, transparent 5%),
-        linear-gradient(to right, rgba(184,134,11,0.6) 5%, transparent 20%),
-        linear-gradient(to left, rgba(184,134,11,0.6) 5%, transparent 20%);
+        linear-gradient(to right, rgba(184,134,11,0.9) 0%, rgba(184,134,11,0) 10%),
+        linear-gradient(to left, rgba(184,134,11,0.9) 0%, rgba(184,134,11,0) 10%);
+      background-repeat: no-repeat;
+      background-position: left, right;
+      background-size: 80px 100%, 80px 100%;
     }
 
     .background-image {
@@ -71,3 +72,66 @@
       position: relative;
       z-index: 1;
       text-align: center;
+      max-width: 600px;
+      width: 90vw;
+    }
+
+    h1 {
+      font-size: 3.8em;
+      font-weight: 900;
+      color: #ffd700;
+      text-shadow: 0 0 12px #ffd700aa, 0 0 24px #b8860b77;
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+      font-family: 'Netflix Sans', Arial, sans-serif;
+    }
+
+    .description {
+      font-size: 1.3em;
+      line-height: 1.5em;
+      color: #ffd966;
+      margin-bottom: 40px;
+      font-weight: 600;
+      text-shadow: 1px 1px 6px #b8860b88;
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .btn-link {
+      background-color: #b8860b;
+      color: #000;
+      font-weight: 700;
+      padding: 18px 30px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 1.6em; /* aumentado */
+      letter-spacing: 1.5px; /* aumentado */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      box-shadow: 0 0 12px #b8860b99;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      width: 100%;  /* para ocupar toda a largura do container */
+      max-width: 600px; /* maximo 600px */
+      animation: blink 3s infinite;
+    }
+
+    .btn-link:hover {
+      background-color: #d6af2b;
+      box-shadow: 0 0 18px #d6af2bcc;
+      transform: scale(1.05);
+    }
+
+    .btn-link:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 6px #b8860bcc inset;
+    }
+
+    .btn-link i {
+      font-size
