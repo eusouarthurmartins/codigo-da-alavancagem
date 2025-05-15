@@ -20,25 +20,16 @@
 
     body, html {
       height: 100%;
+      min-height: 100vh;
       font-family: 'Arial', sans-serif;
       background-color: #000;
       color: #b8860b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       overflow-x: hidden;
       position: relative;
-    }
-
-    /* Imagem fixa de fundo */
-    .background-image {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover; /* cobre toda área sem distorcer */
-      object-position: center;
-      z-index: 0;
-      pointer-events: none;
-      filter: brightness(0.7);
     }
 
     /* Sombras douradas só nas laterais */
@@ -46,11 +37,12 @@
       content: "";
       position: fixed;
       top: 0;
-      width: 60px;
+      width: 50px;
       height: 100vh;
       pointer-events: none;
-      z-index: 1;
-      box-shadow: 0 0 60px 25px #b8860b;
+      z-index: 0;
+      box-shadow: 0 0 40px 30px #b8860b;
+      background: transparent;
     }
 
     body::before {
@@ -61,15 +53,26 @@
       right: 0;
     }
 
-    /* Conteúdo centralizado em cima */
-    .content-wrapper {
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;  /* cobre toda área da tela sem distorcer */
+      object-position: center center;
+      z-index: -1; /* atrás do conteúdo */
+      pointer-events: none;
+      opacity: 0.85;
+      background-color: #000;
+    }
+
+    h1, .description, .buttons-container {
       position: relative;
-      z-index: 2;
+      z-index: 1;
+      text-align: center;
       max-width: 600px;
       width: 90vw;
-      margin: 0 auto;
-      padding: 30px 20px;
-      text-align: center;
     }
 
     h1 {
@@ -176,59 +179,57 @@
     class="background-image"
   />
 
-  <div class="content-wrapper">
-    <h1>Thurzin Trader</h1>
+  <h1>Thurzin Trader</h1>
 
-    <div class="description">
-      Vivendo de OB!<br />
-      +7 no Digital<br />
-      Não te mando msg<br />
-      Cuidado com golpes
-    </div>
+  <div class="description">
+    Vivendo de OB!<br />
+    +7 no Digital<br />
+    Não te mando msg<br />
+    Cuidado com golpes
+  </div>
 
-    <div class="buttons-container">
-      <a
-        href="https://wa.me/+5522992568259"
-        target="_blank"
-        class="btn-link"
-        rel="noopener noreferrer"
-      ><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <div class="buttons-container">
+    <a
+      href="https://wa.me/+5522992568259"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fab fa-whatsapp"></i> WhatsApp</a>
 
-      <a
-        href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack="
-        target="_blank"
-        class="btn-link"
-        rel="noopener noreferrer"
-      ><i class="fas fa-chart-line"></i> Corretora</a>
+    <a
+      href="https://trade.obynexbroker.com/register?aff=757282&aff_model=revenue&afftrack="
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-chart-line"></i> Corretora</a>
 
-      <a
-        href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc"
-        target="_blank"
-        class="btn-link"
-        rel="noopener noreferrer"
-      ><i class="fab fa-tiktok"></i> TikTok</a>
+    <a
+      href="https://www.tiktok.com/@thurzintradershorts?is_from_webapp=1&sender_device=pc"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fab fa-tiktok"></i> TikTok</a>
 
-      <a
-        href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10"
-        target="_blank"
-        class="btn-link"
-        rel="noopener noreferrer"
-      ><i class="fas fa-graduation-cap"></i> MTI</a>
+    <a
+      href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-graduation-cap"></i> MTI</a>
 
-      <a
-        href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10"
-        target="_blank"
-        class="btn-link"
-        rel="noopener noreferrer"
-      ><i class="fas fa-bolt"></i> Código da Alavancagem</a>
+    <a
+      href="https://pay.hotmart.com/P99676603K?off=xnabk69w&checkoutMode=10"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-code"></i> Código da Alavancagem</a>
 
-      <a
-        href="https://t.me/+ouYsMCHzRRdhYTkx"
-        target="_blank"
-        class="btn-link"
-        rel="noopener noreferrer"
-      ><i class="fas fa-comments"></i> Sala de Sinais</a>
-    </div>
+    <a
+      href="https://t.me/+ouYsMCHzRRdhYTkx"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-comments"></i> Sala de Sinais</a>
   </div>
 </body>
 </html>
