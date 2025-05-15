@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cadastro - Thurzin Trader</title>
 
-  <!-- Font Awesome CDN -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    rel="stylesheet"
-  />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 
   <style>
     * {
@@ -22,40 +19,61 @@
       height: 100%;
       font-family: 'Arial', sans-serif;
       background-color: #000;
-      color: #ffd700;
+      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
       overflow-x: hidden;
+    }
+
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.9;
+      box-shadow:
+        -30px 0 60px rgba(255, 215, 0, 0.3),
+        30px 0 60px rgba(255, 215, 0, 0.3);
+    }
+
+    .content {
       position: relative;
+      z-index: 1;
+      max-width: 600px;
+      width: 90vw;
+      text-align: center;
+      padding: 40px 0;
     }
 
     h1 {
       font-size: 3.5em;
       font-weight: 900;
-      color: #fff8dc;
-      text-shadow: 0 0 12px #ffd700aa, 0 0 24px #b8860b77;
-      margin: 40px 0 20px 0;
-      letter-spacing: 3px;
-      animation: pulse 2s infinite ease-in-out;
+      color: #ffffffcc;
+      text-shadow: 0 0 12px #ffffff55, 0 0 24px #ffd70055;
+      margin-bottom: 20px;
+      animation: pulse 2.5s infinite ease-in-out;
+      font-family: 'Netflix Sans', Arial, sans-serif;
     }
 
-    .form-container {
-      width: 95%;
-      max-width: 720px;
-      margin-bottom: 60px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 
-        -20px 0 60px rgba(255, 215, 0, 0.3), 
-        20px 0 60px rgba(255, 215, 0, 0.3);
+    p.description {
+      font-size: 1.3em;
+      color: #ffffffaa;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 5px #ffffff33;
+      font-weight: 500;
     }
 
     iframe {
       width: 100%;
-      height: 800px;
+      height: 650px;
       border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 24px rgba(255, 215, 0, 0.3);
     }
 
     @keyframes pulse {
@@ -65,28 +83,31 @@
       }
       50% {
         transform: scale(1.05);
-        opacity: 0.85;
+        opacity: 0.8;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 480px) {
       h1 {
-        font-size: 2em;
+        font-size: 2.2em;
       }
-
+      p.description {
+        font-size: 1em;
+      }
       iframe {
-        height: 1000px;
+        height: 550px;
       }
     }
   </style>
 </head>
 <body>
+  <img src="assets/fundo-overlay.png" alt="Imagem de fundo" class="background-image"/>
 
-  <h1>Cadastro VIP</h1>
+  <div class="content">
+    <h1>Thurzin Trader</h1>
+    <p class="description">Preencha seus dados abaixo para garantir seu acesso!</p>
 
-  <div class="form-container">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfL8tw8F3z6hKhzJmN3U8hJJGGqjAkhX0Uyp9avU9MD1ks__w/viewform?embedded=true" loading="lazy">Carregando…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdX52WUFyuW0Wkod82dhvsAB3eD7EMVowo1Ghs03XZl_hZnwg/viewform?embedded=true" loading="lazy">Carregando…</iframe>
   </div>
-
 </body>
 </html>
