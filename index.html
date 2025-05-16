@@ -95,8 +95,8 @@
       font-weight: 700;
     }
     #countdown {
-      font-size: 1.6em;
-      color: #cc3b3b;
+      font-size: 1.6em; /* aumentado */
+      color: #cc3b3b; /* vermelho chamativo, nada neon */
       font-weight: 900;
       margin: 20px 0 30px 0;
       text-shadow: 0 0 3px #cc3b3b88;
@@ -170,13 +170,35 @@
 
     <div id="countdown">Oferta termina em: 10:00</div>
 
-    <a href="https://wa.me/5522992568259?text=Olá%20vim%20pela%20oferta%20do%20Código%20da%20Alavancagem!" class="whatsapp-button">📲 Agende uma alavancagem comigo!</a>
+    <a href="https://wa.me/+5522992568259" class="whatsapp-button">📲 Agende uma alavancagem comigo!</a>
 
     <p style="color: #cc3b3b; font-size: 2em; font-weight: 900; margin-top: 20px;">
       Oferta imperdível, por apenas R$ 49,99
     </p>
 
-    <div id="hotmart-sales-funnel" style="margin-top: 40px; min-height: 300px;"></div>
+    <div id="hotmart-sales-funnel" style="margin-top: 40px;"></div>
   </div>
 
-  <script src
+  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+  <script>
+    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
+
+    let timeLeft = 10 * 60; // 10 minutos
+    const countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      countdownElement.textContent = `Oferta termina em: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      if (timeLeft > 0) {
+        timeLeft--;
+        setTimeout(updateCountdown, 1000);
+      } else {
+        countdownElement.textContent = "Oferta encerrada!";
+      }
+    }
+
+    updateCountdown();
+  </script>
+</body>
+</html>
