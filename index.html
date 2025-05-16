@@ -10,8 +10,7 @@
       padding: 0;
       font-family: Arial, sans-serif;
       color: #222;
-      background: #f5f7fa url('assets/fundotrader.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background: #f5f7fa;
       position: relative;
       overflow-x: hidden;
     }
@@ -19,7 +18,7 @@
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(245, 247, 250, 0.7); /* camada translúcida para clarear a imagem e não atrapalhar o texto */
+      background: rgba(245, 247, 250, 0.5); /* mais transparente */
       pointer-events: none;
       z-index: 0;
       animation: moveBackground 30s linear infinite;
@@ -36,13 +35,13 @@
     }
     .container {
       position: relative;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: transparent; /* sem fundo branco */
       max-width: 800px;
       margin: 60px auto;
       padding: 30px 25px;
       text-align: center;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(100, 100, 100, 0.3);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* sombra para destacar o texto */
       z-index: 1;
       color: #222;
     }
@@ -95,8 +94,8 @@
       font-weight: 700;
     }
     #countdown {
-      font-size: 1.6em;
-      color: #cc3b3b;
+      font-size: 1.6em; /* aumentado */
+      color: #cc3b3b; /* vermelho chamativo, nada neon */
       font-weight: 900;
       margin: 20px 0 30px 0;
       text-shadow: 0 0 3px #cc3b3b88;
