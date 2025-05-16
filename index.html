@@ -12,10 +12,9 @@
       color: #222;
       position: relative;
       overflow-x: hidden;
-
-      /* Fundo degradê preto para dourado */
       background: linear-gradient(180deg, #000000 0%, #b8860b 100%);
     }
+
     body::before {
       content: "";
       position: fixed;
@@ -29,90 +28,96 @@
       background-size: 150% 150%;
       filter: brightness(0.85);
     }
+
     @keyframes moveBackground {
       0% { background-position: center top; }
       50% { background-position: center center; }
       100% { background-position: center top; }
     }
+
     .container {
       position: relative;
-      background: linear-gradient(135deg, #000000, #b8860b);
+      background: linear-gradient(145deg, #1a1a1a, #b8860b);
       max-width: 800px;
       margin: 60px auto;
       padding: 30px 25px;
       text-align: center;
       border-radius: 12px;
-      box-shadow: 0 0 20px #b8860b;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
       z-index: 1;
-      color: #f5d76e;
+      color: #fff;
     }
+
     h1 {
-      color: #f5d76e; /* dourado claro */
+      color: #b8860b;
       font-size: 2.2em;
       margin-bottom: 20px;
       font-weight: 900;
-      text-shadow: none; /* removido sombra */
-      filter: none; /* remover filtro */
+      text-shadow: none;
+      filter: none;
     }
+
     p, ul li {
       font-size: 1em;
       line-height: 1.5;
       margin: 12px 0;
-      color: #f5d76e;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
     }
+
     .highlight {
-      color: #f5d76e;
+      color: #ffdf7e;
       font-weight: bold;
     }
+
     ul {
       text-align: left;
       padding-left: 25px;
       margin-bottom: 30px;
       list-style: none;
     }
+
     ul li::before {
       content: "✅";
       margin-right: 10px;
-      color: #f5d76e;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      color: #ffdf7e;
     }
+
     .depoimentos {
-      background-color: rgba(245, 215, 110, 0.15);
+      background-color: #f0f0f0;
       padding: 20px 18px;
       border-radius: 10px;
       margin: 30px 0;
       text-align: left;
-      box-shadow: 0 0 8px #b8860baa;
-      color: #f5d76e;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      box-shadow: 0 0 8px #bbb;
+      color: #444;
     }
+
     .depoimento {
       font-style: italic;
       margin-bottom: 15px;
       font-size: 1em;
-      color: #f5d76e;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      color: #555;
     }
+
     .depoimento strong {
       display: block;
       margin-top: 5px;
-      color: #f5d76e;
+      color: #777;
       font-weight: 700;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
     }
+
     #countdown {
       font-size: 1.6em;
       color: #ffffff;
       font-weight: 900;
       margin: 20px 0 30px 0;
-      text-shadow: 0 0 6px #f5d76e;
-      animation: blink 1s steps(2, start) infinite;
+      animation: blink 1s infinite;
     }
+
     @keyframes blink {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0; }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
+
     .whatsapp-button {
       display: inline-block;
       background: #b8860b;
@@ -126,31 +131,30 @@
       box-shadow: 0 0 8px #b8860baa;
       transition: background 0.3s ease, box-shadow 0.3s ease;
     }
+
     .whatsapp-button:hover {
       background: #d6af2b;
       box-shadow: 0 0 15px #d6af2bcc;
     }
-    p.offer-price {
-      color: #fff;
-      font-size: 2em;
-      font-weight: 900;
-      margin-top: 20px;
-      text-shadow: 0 0 6px #f5d76e;
-    }
+
     @media (max-width: 600px) {
       .container {
         margin: 30px 15px;
         padding: 25px 15px;
       }
+
       h1 {
         font-size: 1.7em;
       }
+
       p, ul li {
         font-size: 0.9em;
       }
+
       #countdown {
         font-size: 1.3em;
       }
+
       .whatsapp-button {
         font-size: 1em;
         padding: 12px 20px;
@@ -191,11 +195,33 @@
 
     <a href="https://wa.me/+5522992568259" class="whatsapp-button">📲 Agende uma alavancagem comigo!</a>
 
-    <p class="offer-price">
+    <p style="color: #fff; font-size: 2em; font-weight: 900; margin-top: 20px;">
       Oferta imperdível, por apenas R$ 49,99
     </p>
 
     <div id="hotmart-sales-funnel" style="margin-top: 40px;"></div>
   </div>
 
-  <
+  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+  <script>
+    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
+
+    let timeLeft = 10 * 60;
+    const countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      countdownElement.textContent = `Oferta termina em: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      if (timeLeft > 0) {
+        timeLeft--;
+        setTimeout(updateCountdown, 1000);
+      } else {
+        countdownElement.textContent = "Oferta encerrada!";
+      }
+    }
+
+    updateCountdown();
+  </script>
+</body>
+</html>
