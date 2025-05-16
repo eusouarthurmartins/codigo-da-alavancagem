@@ -10,9 +10,11 @@
       padding: 0;
       font-family: Arial, sans-serif;
       color: #222;
-      background: #f5f7fa; /* sem imagem aqui */
       position: relative;
       overflow-x: hidden;
+
+      /* Fundo degradê preto para dourado */
+      background: linear-gradient(180deg, #000000 0%, #b8860b 100%);
     }
     body::before {
       content: "";
@@ -25,9 +27,8 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: 150% 150%;
-      opacity: 0.1; /* imagem com 10% de opacidade */
       filter: brightness(0.85);
-      /* background-color: rgba(245, 247, 250, 0.25);  camada branca desativada */
+      /* Imagem normal, sem transparência */
     }
     @keyframes moveBackground {
       0% { background-position: center top; }
@@ -36,7 +37,7 @@
     }
     .container {
       position: relative;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
       max-width: 800px;
       margin: 60px auto;
       padding: 30px 25px;
