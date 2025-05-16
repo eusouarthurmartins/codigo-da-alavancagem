@@ -28,7 +28,6 @@
       background-position: center;
       background-size: 150% 150%;
       filter: brightness(0.85);
-      /* Imagem normal, sem transparência */
     }
     @keyframes moveBackground {
       0% { background-position: center top; }
@@ -37,33 +36,34 @@
     }
     .container {
       position: relative;
-      background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(184,134,11,0.85) 100%);
+      background: linear-gradient(135deg, #000000 0%, #b8860b 100%);
       max-width: 800px;
       margin: 60px auto;
       padding: 30px 25px;
       text-align: center;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 15px rgba(184, 134, 11, 0.8);
       z-index: 1;
-      color: #f5deb3;
+      color: #fff;
     }
     h1 {
-      color: #d6af2b;
+      color: #b8860b;
       font-size: 2.2em;
       margin-bottom: 20px;
       font-weight: 900;
-      text-shadow: 1px 1px 4px #000000cc;
+      text-shadow: 1px 1px 4px #d6af2b;
     }
     p, ul li {
       font-size: 1em;
       line-height: 1.5;
       margin: 12px 0;
-      text-shadow: 0 0 3px #000000cc;
+      color: #fff;
+      text-shadow: 0 0 3px #000;
     }
     .highlight {
       color: #d6af2b;
       font-weight: bold;
-      text-shadow: 0 0 5px #000;
+      text-shadow: 0 0 4px #b8860b;
     }
     ul {
       text-align: left;
@@ -78,34 +78,42 @@
       text-shadow: 0 0 3px #000;
     }
     .depoimentos {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(255, 255, 255, 0.1);
       padding: 20px 18px;
       border-radius: 10px;
       margin: 30px 0;
       text-align: left;
-      box-shadow: 0 0 8px #000000bb;
-      color: #f5deb3;
-      text-shadow: 0 0 4px #000;
+      box-shadow: 0 0 8px #b8860b88;
+      color: #eee;
     }
     .depoimento {
       font-style: italic;
       margin-bottom: 15px;
       font-size: 1em;
-      color: #f5deb3;
+      color: #ddd;
+      text-shadow: 0 0 2px #000;
     }
     .depoimento strong {
       display: block;
       margin-top: 5px;
       color: #d6af2b;
       font-weight: 700;
-      text-shadow: 0 0 5px #000;
+      text-shadow: 0 0 3px #000;
     }
     #countdown {
       font-size: 1.6em;
-      color: #cc3b3b;
+      color: #fff;
       font-weight: 900;
       margin: 20px 0 30px 0;
-      text-shadow: 0 0 3px #cc3b3b88;
+      text-shadow: 0 0 5px #b8860b;
+      animation: piscar 1.5s infinite;
+    }
+    .oferta-texto {
+      color: #fff !important;
+      font-size: 2em;
+      font-weight: 900;
+      margin-top: 20px;
+      text-shadow: 0 0 8px #b8860b;
     }
     .whatsapp-button {
       display: inline-block;
@@ -124,6 +132,10 @@
       background: #d6af2b;
       box-shadow: 0 0 15px #d6af2bcc;
     }
+    @keyframes piscar {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0.4; }
+    }
     @media (max-width: 600px) {
       .container {
         margin: 30px 15px;
@@ -141,6 +153,9 @@
       .whatsapp-button {
         font-size: 1em;
         padding: 12px 20px;
+      }
+      .oferta-texto {
+        font-size: 1.5em;
       }
     }
   </style>
@@ -178,7 +193,7 @@
 
     <a href="https://wa.me/+5522992568259" class="whatsapp-button">📲 Agende uma alavancagem comigo!</a>
 
-    <p style="color: #cc3b3b; font-size: 2em; font-weight: 900; margin-top: 20px;">
+    <p class="oferta-texto">
       Oferta imperdível, por apenas R$ 49,99
     </p>
 
