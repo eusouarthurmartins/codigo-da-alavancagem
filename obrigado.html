@@ -8,16 +8,17 @@
     body {
       margin: 0;
       padding: 0;
-      background: #000000;
-      color: gold;
+      background: linear-gradient(90deg, #000000 0%, #222222 50%, #000000 100%);
+      box-shadow: inset 0 0 100px gold;
       font-family: Arial, sans-serif;
+      color: gold;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      overflow: hidden;
       text-align: center;
-      background: linear-gradient(90deg, #000000 0%, #222222 50%, #000000 100%);
-      box-shadow: inset 0 0 100px gold;
+      position: relative;
     }
     .container {
       max-width: 600px;
@@ -25,6 +26,8 @@
       border-radius: 12px;
       background-color: rgba(0, 0, 0, 0.85);
       box-shadow: 0 0 15px gold;
+      position: relative;
+      z-index: 10;
     }
     h1 {
       font-size: 3em;
@@ -51,6 +54,15 @@
       background: #e6c200;
       box-shadow: 0 0 20px #e6c200cc;
     }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 5;
+      width: 100vw;
+      height: 100vh;
+    }
   </style>
 </head>
 <body>
@@ -59,5 +71,114 @@
     <p>Seu pedido foi confirmado com sucesso.<br>Fique atento ao seu e-mail para mais informações.</p>
     <a href="https://wa.me/+5522992568259" class="button" target="_blank" rel="noopener noreferrer">📲 Fale comigo no WhatsApp</a>
   </div>
+
+  <canvas id="fireworks"></canvas>
+
+  <script>
+    const canvas = document.getElementById('fireworks');
+    const ctx = canvas.getContext('2d');
+    let cw, ch;
+
+    function resize() {
+      cw = window.innerWidth;
+      ch = window.innerHeight;
+      canvas.width = cw;
+      canvas.height = ch;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Firework {
+      constructor() {
+        this.x = Math.random() * cw;
+        this.y = ch + 10;
+        this.targetY = Math.random() * ch / 2 + ch / 4;
+        this.speed = Math.random() * 3 + 3;
+        this.particles = [];
+        this.exploded = false;
+        this.color = `hsl(${Math.floor(Math.random() * 360)}, 100%, 60%)`;
+      }
+      update() {
+        if (!this.exploded) {
+          this.y -= this.speed;
+          if (this.y <= this.targetY) {
+            this.explode();
+            this.exploded = true;
+          }
+        }
+        this.particles.forEach(p => p.update());
+        this.particles = this.particles.filter(p => !p.dead);
+      }
+      explode() {
+        const count = 30 + Math.floor(Math.random() * 20);
+        for (let i = 0; i < count; i++) {
+          this.particles.push(new Particle(this.x, this.y, this.color));
+        }
+      }
+      draw() {
+        if (!this.exploded) {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.shadowColor = this.color;
+          ctx.shadowBlur = 10;
+          ctx.fill();
+        }
+        this.particles.forEach(p => p.draw());
+      }
+      isDone() {
+        return this.exploded && this.particles.length === 0;
+      }
+    }
+
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.radius = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 5;
+        this.speedY = (Math.random() - 0.5) * 5;
+        this.gravity = 0.05;
+        this.alpha = 1;
+        this.dead = false;
+      }
+      update() {
+        this.speedY += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.alpha -= 0.02;
+        if (this.alpha <= 0) this.dead = true;
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    let fireworks = [];
+
+    function loop() {
+      ctx.clearRect(0, 0, cw, ch);
+      if (fireworks.length < 5) {
+        fireworks.push(new Firework());
+      }
+      fireworks.forEach((f, i) => {
+        f.update();
+        f.draw();
+        if (f.isDone()) fireworks.splice(i, 1);
+      });
+      requestAnimationFrame(loop);
+    }
+
+    loop();
+  </script>
 </body>
 </html>
