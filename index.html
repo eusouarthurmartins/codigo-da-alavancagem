@@ -36,34 +36,34 @@
     }
     .container {
       position: relative;
-      background: linear-gradient(135deg, #000000 0%, #b8860b 100%);
+      background: linear-gradient(135deg, #000000, #b8860b);
       max-width: 800px;
       margin: 60px auto;
       padding: 30px 25px;
       text-align: center;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(184, 134, 11, 0.8);
+      box-shadow: 0 0 20px #b8860b;
       z-index: 1;
-      color: #fff;
+      color: #f5d76e;
     }
     h1 {
-      color: #b8860b;
+      color: #f5d76e; /* dourado claro */
       font-size: 2.2em;
       margin-bottom: 20px;
       font-weight: 900;
-      text-shadow: 1px 1px 4px #d6af2b;
+      text-shadow: none; /* removido sombra */
+      filter: none; /* remover filtro */
     }
     p, ul li {
       font-size: 1em;
       line-height: 1.5;
       margin: 12px 0;
-      color: #fff;
-      text-shadow: 0 0 3px #000;
+      color: #f5d76e;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
     }
     .highlight {
-      color: #d6af2b;
+      color: #f5d76e;
       font-weight: bold;
-      text-shadow: 0 0 4px #b8860b;
     }
     ul {
       text-align: left;
@@ -74,46 +74,44 @@
     ul li::before {
       content: "✅";
       margin-right: 10px;
-      color: #d6af2b;
-      text-shadow: 0 0 3px #000;
+      color: #f5d76e;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
     }
     .depoimentos {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(245, 215, 110, 0.15);
       padding: 20px 18px;
       border-radius: 10px;
       margin: 30px 0;
       text-align: left;
-      box-shadow: 0 0 8px #b8860b88;
-      color: #eee;
+      box-shadow: 0 0 8px #b8860baa;
+      color: #f5d76e;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
     }
     .depoimento {
       font-style: italic;
       margin-bottom: 15px;
       font-size: 1em;
-      color: #ddd;
-      text-shadow: 0 0 2px #000;
+      color: #f5d76e;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
     }
     .depoimento strong {
       display: block;
       margin-top: 5px;
-      color: #d6af2b;
+      color: #f5d76e;
       font-weight: 700;
-      text-shadow: 0 0 3px #000;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
     }
     #countdown {
       font-size: 1.6em;
-      color: #fff;
+      color: #ffffff;
       font-weight: 900;
       margin: 20px 0 30px 0;
-      text-shadow: 0 0 5px #b8860b;
-      animation: piscar 1.5s infinite;
+      text-shadow: 0 0 6px #f5d76e;
+      animation: blink 1s steps(2, start) infinite;
     }
-    .oferta-texto {
-      color: #fff !important;
-      font-size: 2em;
-      font-weight: 900;
-      margin-top: 20px;
-      text-shadow: 0 0 8px #b8860b;
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
     }
     .whatsapp-button {
       display: inline-block;
@@ -132,9 +130,12 @@
       background: #d6af2b;
       box-shadow: 0 0 15px #d6af2bcc;
     }
-    @keyframes piscar {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0.4; }
+    p.offer-price {
+      color: #fff;
+      font-size: 2em;
+      font-weight: 900;
+      margin-top: 20px;
+      text-shadow: 0 0 6px #f5d76e;
     }
     @media (max-width: 600px) {
       .container {
@@ -153,9 +154,6 @@
       .whatsapp-button {
         font-size: 1em;
         padding: 12px 20px;
-      }
-      .oferta-texto {
-        font-size: 1.5em;
       }
     }
   </style>
@@ -193,33 +191,11 @@
 
     <a href="https://wa.me/+5522992568259" class="whatsapp-button">📲 Agende uma alavancagem comigo!</a>
 
-    <p class="oferta-texto">
+    <p class="offer-price">
       Oferta imperdível, por apenas R$ 49,99
     </p>
 
     <div id="hotmart-sales-funnel" style="margin-top: 40px;"></div>
   </div>
 
-  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
-  <script>
-    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
-
-    let timeLeft = 10 * 60; // 10 minutos
-    const countdownElement = document.getElementById('countdown');
-
-    function updateCountdown() {
-      const minutes = Math.floor(timeLeft / 60);
-      const seconds = timeLeft % 60;
-      countdownElement.textContent = `Oferta termina em: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-      if (timeLeft > 0) {
-        timeLeft--;
-        setTimeout(updateCountdown, 1000);
-      } else {
-        countdownElement.textContent = "Oferta encerrada!";
-      }
-    }
-
-    updateCountdown();
-  </script>
-</body>
-</html>
+  <
