@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      color: #222;
+      color: #fff;
       position: relative;
       overflow-x: hidden;
       background: linear-gradient(180deg, #000000 0%, #b8860b 100%);
@@ -26,7 +26,7 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: 150% 150%;
-      filter: brightness(0.85);
+      filter: brightness(1);
     }
 
     @keyframes moveBackground {
@@ -37,24 +37,23 @@
 
     .container {
       position: relative;
-      background: linear-gradient(145deg, #1a1a1a, #b8860b);
+      background: linear-gradient(145deg, #000 0%, #b8860b 100%);
       max-width: 800px;
       margin: 60px auto;
       padding: 30px 25px;
       text-align: center;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 18px #000000cc;
       z-index: 1;
       color: #fff;
     }
 
     h1 {
-      color: #b8860b;
+      color: #ffd700;
       font-size: 2.2em;
       margin-bottom: 20px;
       font-weight: 900;
       text-shadow: none;
-      filter: none;
     }
 
     p, ul li {
@@ -64,7 +63,7 @@
     }
 
     .highlight {
-      color: #ffdf7e;
+      color: #ffd700;
       font-weight: bold;
     }
 
@@ -78,36 +77,36 @@
     ul li::before {
       content: "✅";
       margin-right: 10px;
-      color: #ffdf7e;
+      color: #ffd700;
     }
 
     .depoimentos {
-      background-color: #f0f0f0;
+      background-color: rgba(0, 0, 0, 0.85);
       padding: 20px 18px;
       border-radius: 10px;
       margin: 30px 0;
       text-align: left;
-      box-shadow: 0 0 8px #bbb;
-      color: #444;
+      box-shadow: 0 0 8px #b8860b55;
+      color: #ffd700;
     }
 
     .depoimento {
       font-style: italic;
       margin-bottom: 15px;
       font-size: 1em;
-      color: #555;
+      color: #ffd700;
     }
 
     .depoimento strong {
       display: block;
       margin-top: 5px;
-      color: #777;
+      color: #ffdf7e;
       font-weight: 700;
     }
 
     #countdown {
       font-size: 1.6em;
-      color: #ffffff;
+      color: #fff;
       font-weight: 900;
       margin: 20px 0 30px 0;
       animation: blink 1s infinite;
@@ -115,7 +114,7 @@
 
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+      50% { opacity: 0.2; }
     }
 
     .whatsapp-button {
@@ -142,19 +141,15 @@
         margin: 30px 15px;
         padding: 25px 15px;
       }
-
       h1 {
         font-size: 1.7em;
       }
-
       p, ul li {
         font-size: 0.9em;
       }
-
       #countdown {
         font-size: 1.3em;
       }
-
       .whatsapp-button {
         font-size: 1em;
         padding: 12px 20px;
@@ -206,7 +201,7 @@
   <script>
     checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
 
-    let timeLeft = 10 * 60;
+    let timeLeft = 10 * 60; // 10 minutos
     const countdownElement = document.getElementById('countdown');
 
     function updateCountdown() {
