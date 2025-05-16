@@ -10,8 +10,7 @@
       padding: 0;
       font-family: Arial, sans-serif;
       color: #222;
-      /* Fundo com a imagem embutida em base64 e filtro de transparência */
-      background: rgba(245, 247, 250, 0.95) url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD...INSIRA_O_BASE64_COMPLETO_AQUI...') no-repeat center center fixed;
+      background: #f5f7fa url('assets/fundotrader.jpg') no-repeat center center fixed;
       background-size: cover;
       position: relative;
       overflow-x: hidden;
@@ -20,16 +19,15 @@
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(245, 247, 250, 0.85);
+      background: rgba(245, 247, 250, 0.7); /* camada translúcida para clarear a imagem e não atrapalhar o texto */
       pointer-events: none;
       z-index: 0;
       animation: moveBackground 30s linear infinite;
-      background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD...INSIRA_O_BASE64_COMPLETO_AQUI...');
+      background-image: url('assets/fundotrader.jpg');
       background-repeat: no-repeat;
       background-position: center;
       background-size: 150% 150%;
       filter: brightness(0.9);
-      opacity: 0.3; /* deixa o fundo mais transparente */
     }
     @keyframes moveBackground {
       0% { background-position: center top; }
