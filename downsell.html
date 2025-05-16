@@ -9,49 +9,97 @@
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #f4f4f4 0%, #eaeaea 100%);
-      color: #222;
+      color: #f5f5f5;
+      background: linear-gradient(to bottom, #000000 0%, #b8860b 100%);
+      position: relative;
+      overflow-x: hidden;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url('assets/fundotrader.jpg');
+      background-size: 150% 150%;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: moveBackground 30s linear infinite;
+      filter: brightness(0.85);
+    }
+
+    @keyframes moveBackground {
+      0% { background-position: center top; }
+      50% { background-position: center center; }
+      100% { background-position: center top; }
+    }
+
     .container {
+      position: relative;
       max-width: 800px;
       margin: 60px auto;
-      background: #ffffff;
+      background: linear-gradient(135deg, #000000cc, #2a2a2acc);
       padding: 40px 30px;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 20px rgba(184, 134, 11, 0.4);
       text-align: center;
+      z-index: 1;
     }
+
     .price-banner {
       font-size: 2.2em;
       font-weight: bold;
-      color: #d70000;
-      margin-bottom: 30px;
+      color: #d4af37;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 5px #000;
     }
+
+    #countdown {
+      font-size: 1.8em;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 30px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
     h1 {
       font-size: 2.5em;
-      color: #d4af37;
+      color: #ffffff;
       margin-bottom: 20px;
     }
+
     p {
       font-size: 1.2em;
       line-height: 1.6;
       margin-bottom: 20px;
+      color: #eee;
     }
+
     .highlight {
-      color: #d4af37;
+      color: #ffd700;
       font-weight: bold;
     }
+
     #hotmart-sales-funnel {
       margin-top: 40px;
     }
+
     .whatsapp-section {
       margin-top: 40px;
     }
+
     .whatsapp-section p {
       font-size: 1.2em;
-      color: #333;
+      color: #ddd;
       margin-bottom: 20px;
     }
+
     .whatsapp-button {
       display: inline-block;
       background-color: #25D366;
@@ -64,9 +112,24 @@
       box-shadow: 0 0 10px #25D366aa;
       transition: background-color 0.3s ease;
     }
+
     .whatsapp-button:hover {
       background-color: #1DA851;
     }
+
+    .testimonials {
+      background: #111111cc;
+      margin-top: 50px;
+      padding: 30px 20px;
+      border-radius: 12px;
+      color: #d4af37;
+    }
+
+    .testimonial {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 2em;
@@ -76,6 +139,9 @@
       }
       p {
         font-size: 1em;
+      }
+      #countdown {
+        font-size: 1.4em;
       }
       .whatsapp-button {
         font-size: 1.1em;
@@ -87,6 +153,7 @@
 <body>
   <div class="container">
     <div class="price-banner">🔥 Oferta imperdível, por apenas R$ 29,99</div>
+    <div id="countdown">Oferta expira em: 10:00</div>
 
     <h1>🎯 Última Oportunidade!</h1>
     <p>Sabemos que você está em dúvida… então preparamos uma <span class="highlight">condição especial</span> para você não sair de mãos vazias.</p>
@@ -107,6 +174,32 @@
         📲 Conversar no WhatsApp
       </a>
     </div>
+
+    <!-- Depoimentos -->
+    <div class="testimonials">
+      <h2>O que dizem nossos alunos:</h2>
+      <p class="testimonial">“Achei que era mais uma promessa, mas esse conteúdo realmente mudou minha visão sobre o mercado!” – João M.</p>
+      <p class="testimonial">“Comecei com pouco e consegui entender o básico com essa oferta reduzida. Valeu demais!” – Ana L.</p>
+      <p class="testimonial">“Top! Não esperava tanto valor por esse preço. Parabéns!” – Carlos S.</p>
+    </div>
   </div>
+
+  <!-- Contador Regressivo -->
+  <script>
+    let tempo = 600; // 10 minutos
+    const el = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      const minutos = Math.floor(tempo / 60);
+      const segundos = tempo % 60;
+      el.textContent = `Oferta expira em: ${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+      tempo--;
+
+      if (tempo < 0) {
+        clearInterval(timer);
+        el.textContent = "Tempo esgotado!";
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
