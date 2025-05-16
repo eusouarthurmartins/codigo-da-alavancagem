@@ -45,10 +45,25 @@
         -30px 0 60px rgba(255, 215, 0, 0.3), 
         30px 0 60px rgba(255, 215, 0, 0.3);
     }
+    /* Overlay escuro para melhorar contraste */
+    .background-image::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Garantir que todo conteúdo fique acima do overlay */
+    body > * {
+      position: relative;
+      z-index: 2;
+    }
 
     h1, .description, .buttons-container {
-      position: relative;
-      z-index: 1;
       text-align: center;
       max-width: 600px;
       width: 90vw;
@@ -57,7 +72,7 @@
     h1 {
       font-size: 3.8em;
       font-weight: 900;
-      color: rgba(255, 255, 255, 0.7); /* branco mais fosco */
+      color: rgba(255, 255, 255, 0.7);
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
       margin: 40px 0 10px 0;
       letter-spacing: 3px;
@@ -68,7 +83,7 @@
     .description {
       font-size: 1.3em;
       line-height: 1.5em;
-      color: rgba(255, 255, 255, 0.7); /* branco mais fosco */
+      color: rgba(255, 255, 255, 0.7);
       margin-bottom: 50px;
       font-weight: 600;
       text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.2);
@@ -83,7 +98,7 @@
     }
 
     .btn-link {
-      background-color: #b8860b;
+      background: linear-gradient(90deg, #000000 0%, #b8860b 100%);
       color: #000;
       font-weight: 700;
       padding: 18px 30px;
@@ -103,7 +118,7 @@
     }
 
     .btn-link:hover {
-      background-color: #d6af2b;
+      background: linear-gradient(90deg, #1a1a1a 0%, #d6af2b 100%);
       box-shadow: 0 0 18px #d6af2bcc;
       transform: scale(1.05);
     }
@@ -182,7 +197,7 @@
 
   <div class="buttons-container">
     <a
-      href="https://wa.me/+5522992568259"
+      href="https://wa.me/5522992568259"
       target="_blank"
       class="btn-link"
       rel="noopener noreferrer"
@@ -222,6 +237,14 @@
       class="btn-link"
       rel="noopener noreferrer"
     ><i class="fas fa-comments"></i> Sala de Sinais</a>
+
+    <!-- Novo botão Cadastro Gratuito -->
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdX52WUFyuW0Wkod82dhvsAB3eD7EMVowo1Ghs03XZl_hZnwg/viewform?usp=header"
+      target="_blank"
+      class="btn-link"
+      rel="noopener noreferrer"
+    ><i class="fas fa-user-plus"></i> Cadastro Gratuito</a>
   </div>
 </body>
 </html>
