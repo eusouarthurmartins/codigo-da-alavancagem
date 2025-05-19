@@ -139,6 +139,33 @@
       box-shadow: 0 0 15px #d6af2bcc;
     }
 
+    /* Botão flutuante WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      padding: 16px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      animation: pulse 2s infinite;
+      transition: transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
     @media (max-width: 600px) {
       .container {
         margin: 30px 15px;
@@ -161,33 +188,6 @@
         font-size: 1em;
         padding: 12px 20px;
       }
-    }
-
-    /* Botão flutuante do WhatsApp */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      font-size: 26px;
-      padding: 16px 18px;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      text-decoration: none;
-      z-index: 1000;
-      animation: pulse 2s infinite;
-      transition: transform 0.2s ease;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
   </style>
 </head>
@@ -232,26 +232,26 @@
   </div>
 
   <!-- Botão flutuante do WhatsApp -->
-  <a href="https://wa.me/5522992568259" target="_blank" class="whatsapp-float" title="Fale comigo no WhatsApp">
-    📞
+  <a href="https://wa.me/5522992568259" target="_blank" class="whatsapp-float" title="Fale comigo no WhatsApp" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.01 2.001C8.276 2.001 2 8.276 2 16.009c0 2.791.729 5.527 2.112 7.943L2.002 30l6.21-2.058A13.91 13.91 0 0 0 16.01 30c7.734 0 14.01-6.275 14.01-13.99C30.02 8.276 23.744 2 16.01 2zm0 25.451a11.45 11.45 0 0 1-5.848-1.58l-.42-.248-3.692 1.224 1.212-3.598-.275-.447a11.446 11.446 0 0 1-1.75-6.092c0-6.343 5.162-11.5 11.509-11.5 6.346 0 11.509 5.157 11.509 11.5 0 6.345-5.163 11.501-11.509 11.501zm6.309-8.612c-.346-.173-2.047-1.01-2.364-1.123-.316-.115-.546-.173-.776.173-.229.346-.888 1.123-1.09 1.35-.2.229-.4.259-.746.086-.347-.173-1.464-.538-2.79-1.713-1.03-.918-1.724-2.051-1.926-2.397-.2-.346-.021-.533.152-.706.156-.156.346-.4.52-.6.173-.2.229-.346.346-.576.115-.23.057-.43-.029-.603-.087-.173-.776-1.869-1.063-2.556-.28-.673-.564-.58-.776-.59l-.663-.012c-.23 0-.603.086-.918.43s-1.207 1.18-1.207 2.88c0 1.7 1.238 3.343 1.409 3.57.173.229 2.442 3.73 5.915 5.234.827.356 1.472.568 1.974.726.83.265 1.585.228 2.183.139.666-.099 2.047-.837 2.34-1.645.29-.807.29-1.5.203-1.645-.085-.146-.317-.23-.663-.4z"/>
+    </svg>
   </a>
 
-  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
   <script>
-    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
-
-    let timeLeft = 10 * 60;
-    const countdownElement = document.getElementById('countdown');
+    // Contador regressivo 10 minutos
+    let countdownEl = document.getElementById("countdown");
+    let timeLeft = 10 * 60; // 10 minutos em segundos
 
     function updateCountdown() {
-      const minutes = Math.floor(timeLeft / 60);
-      const seconds = timeLeft % 60;
-      countdownElement.textContent = `Oferta termina em: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      let minutes = Math.floor(timeLeft / 60);
+      let seconds = timeLeft % 60;
+      countdownEl.textContent = `Oferta termina em: ${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
       if (timeLeft > 0) {
         timeLeft--;
         setTimeout(updateCountdown, 1000);
       } else {
-        countdownElement.textContent = "Oferta encerrada!";
+        countdownEl.textContent = "Oferta encerrada!";
       }
     }
 
