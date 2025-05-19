@@ -55,6 +55,8 @@
       font-size: 2.2em;
       margin-bottom: 20px;
       font-weight: 900;
+      text-shadow: none;
+      filter: none;
     }
 
     p, ul li {
@@ -82,25 +84,26 @@
     }
 
     .depoimentos {
-      background: linear-gradient(135deg, #000, #b8860b);
+      background-color: #f0f0f0;
       padding: 20px 18px;
       border-radius: 10px;
       margin: 30px 0;
       text-align: left;
-      box-shadow: 0 0 10px #b8860b88;
-      color: #fff;
+      box-shadow: 0 0 8px #bbb;
+      color: #444;
     }
 
     .depoimento {
       font-style: italic;
       margin-bottom: 15px;
       font-size: 1em;
+      color: #555;
     }
 
     .depoimento strong {
       display: block;
       margin-top: 5px;
-      color: #ffdf7e;
+      color: #777;
       font-weight: 700;
     }
 
@@ -136,15 +139,6 @@
       box-shadow: 0 0 15px #d6af2bcc;
     }
 
-    canvas.fireworks {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 2;
-      pointer-events: none;
-    }
-
     @media (max-width: 600px) {
       .container {
         margin: 30px 15px;
@@ -168,11 +162,36 @@
         padding: 12px 20px;
       }
     }
+
+    /* Botão flutuante do WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      font-size: 26px;
+      padding: 16px 18px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
   </style>
 </head>
 <body>
-  <canvas class="fireworks"></canvas>
-
   <div class="container">
     <h1>🎉 Parabéns por adquirir o Método Trader Inteligente!</h1>
 
@@ -212,6 +231,11 @@
     <div id="hotmart-sales-funnel" style="margin-top: 40px;"></div>
   </div>
 
+  <!-- Botão flutuante do WhatsApp -->
+  <a href="https://wa.me/5522992568259" target="_blank" class="whatsapp-float" title="Fale comigo no WhatsApp">
+    📞
+  </a>
+
   <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
   <script>
     checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
@@ -232,62 +256,6 @@
     }
 
     updateCountdown();
-  </script>
-
-  <script>
-    // Fogos de artifício simples com canvas
-    const canvas = document.querySelector('.fireworks');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    function random(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-
-    function Firework() {
-      this.x = random(100, canvas.width - 100);
-      this.y = canvas.height;
-      this.radius = 2;
-      this.color = `hsl(${random(0, 360)}, 100%, 60%)`;
-      this.speedY = random(-18, -12);
-      this.gravity = 0.4;
-      this.alpha = 1;
-    }
-
-    Firework.prototype.update = function () {
-      this.y += this.speedY;
-      this.speedY += this.gravity;
-      this.alpha -= 0.01;
-    };
-
-    Firework.prototype.draw = function () {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = this.color;
-      ctx.globalAlpha = this.alpha;
-      ctx.fill();
-      ctx.globalAlpha = 1;
-    };
-
-    const fireworks = [];
-
-    function animateFireworks() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      if (Math.random() < 0.07) fireworks.push(new Firework());
-
-      for (let i = fireworks.length - 1; i >= 0; i--) {
-        fireworks[i].update();
-        fireworks[i].draw();
-        if (fireworks[i].alpha <= 0) {
-          fireworks.splice(i, 1);
-        }
-      }
-
-      requestAnimationFrame(animateFireworks);
-    }
-
-    animateFireworks();
   </script>
 </body>
 </html>
