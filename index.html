@@ -3,27 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Oferta Especial MTI</title>
+  <title>Oferta especial</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      color: #fff;
-      background: linear-gradient(180deg, #000000 0%, #b8860b 100%);
-      overflow-x: hidden;
+      color: #222;
       position: relative;
+      overflow-x: hidden;
+      background: linear-gradient(180deg, #000000 0%, #b8860b 100%);
     }
 
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: url('assets/fundotrader.jpg') no-repeat center center;
-      background-size: cover;
-      opacity: 0.15;
+      pointer-events: none;
       z-index: 0;
-      animation: moveBackground 40s linear infinite;
+      animation: moveBackground 30s linear infinite;
+      background-image: url('assets/fundotrader.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 150% 150%;
+      filter: brightness(0.85);
     }
 
     @keyframes moveBackground {
@@ -34,33 +37,42 @@
 
     .container {
       position: relative;
+      background: rgba(26, 26, 26, 0.6);
+      backdrop-filter: blur(6px);
       max-width: 800px;
       margin: 60px auto;
-      background: rgba(0, 0, 0, 0.75);
-      padding: 40px 30px;
-      border-radius: 12px;
+      padding: 30px 25px;
       text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
       z-index: 1;
-      box-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
     }
 
     h1 {
-      color: #ffdf7e;
-      font-size: 2.3em;
+      color: #b8860b;
+      font-size: 2.2em;
       margin-bottom: 20px;
+      font-weight: 900;
     }
 
     p, ul li {
       font-size: 1em;
       line-height: 1.5;
-      margin: 14px 0;
+      margin: 12px 0;
+    }
+
+    .highlight {
+      color: #ffdf7e;
+      font-weight: bold;
     }
 
     ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 25px;
       text-align: left;
+      padding-left: 25px;
+      margin-bottom: 30px;
+      list-style: none;
     }
 
     ul li::before {
@@ -69,37 +81,34 @@
       color: #ffdf7e;
     }
 
-    .highlight {
-      color: #ffd700;
-      font-weight: bold;
-    }
-
     .depoimentos {
-      background: #fff;
-      color: #333;
-      margin: 35px 0;
-      padding: 20px;
+      background: linear-gradient(135deg, #000, #b8860b);
+      padding: 20px 18px;
       border-radius: 10px;
-      box-shadow: 0 0 10px #999;
+      margin: 30px 0;
       text-align: left;
+      box-shadow: 0 0 10px #b8860b88;
+      color: #fff;
     }
 
     .depoimento {
       font-style: italic;
-      margin-bottom: 16px;
+      margin-bottom: 15px;
+      font-size: 1em;
     }
 
     .depoimento strong {
       display: block;
-      margin-top: 8px;
-      color: #444;
+      margin-top: 5px;
+      color: #ffdf7e;
+      font-weight: 700;
     }
 
     #countdown {
-      font-size: 1.8em;
-      font-weight: 900;
+      font-size: 1.6em;
       color: #ffffff;
-      margin: 20px 0;
+      font-weight: 900;
+      margin: 20px 0 30px 0;
       animation: blink 1s infinite;
     }
 
@@ -108,99 +117,177 @@
       50% { opacity: 0.3; }
     }
 
-    .botao-compra {
+    .whatsapp-button {
+      display: inline-block;
       background: #b8860b;
       color: #fff;
-      padding: 15px 35px;
-      border-radius: 8px;
-      font-size: 1.2em;
       font-weight: bold;
+      padding: 14px 35px;
+      border-radius: 8px;
+      font-size: 1.1em;
       text-decoration: none;
-      box-shadow: 0 0 12px #b8860b88;
-      transition: background 0.3s ease, transform 0.3s ease;
-      display: inline-block;
-      margin-top: 20px;
+      margin: 10px 12px 0 12px;
+      box-shadow: 0 0 8px #b8860baa;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .botao-compra:hover {
-      background: #d4af37;
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #d4af37cc;
+    .whatsapp-button:hover {
+      background: #d6af2b;
+      box-shadow: 0 0 15px #d6af2bcc;
+    }
+
+    canvas.fireworks {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+      pointer-events: none;
     }
 
     @media (max-width: 600px) {
       .container {
         margin: 30px 15px;
-        padding: 30px 20px;
+        padding: 25px 15px;
       }
 
       h1 {
-        font-size: 1.8em;
+        font-size: 1.7em;
+      }
+
+      p, ul li {
+        font-size: 0.9em;
       }
 
       #countdown {
-        font-size: 1.4em;
+        font-size: 1.3em;
       }
 
-      .botao-compra {
+      .whatsapp-button {
         font-size: 1em;
-        padding: 12px 25px;
+        padding: 12px 20px;
       }
     }
   </style>
 </head>
 <body>
+  <canvas class="fireworks"></canvas>
 
   <div class="container">
-    <h1>🎉 Parabéns por entrar no Método Trader Inteligente!</h1>
+    <h1>🎉 Parabéns por adquirir o Método Trader Inteligente!</h1>
 
-    <p><span class="highlight">Mas antes de começar, uma OPORTUNIDADE ÚNICA:</span></p>
+    <p><span class="highlight">QUE BOM QUE VOCÊ CHEGOU ATÉ AQUI!</span><br />
+    O <strong>MTI</strong> é um produto completo, que você vai entender tudo sobre o mercado de opções binárias!</p>
 
-    <p>Aprenda <strong>técnicas exclusivas de alavancagem</strong> para multiplicar sua banca e se tornar um trader profissional com o <strong>Código da Alavancagem</strong>.</p>
+    <p><span class="highlight">MAS TENHO QUE TE OFERECER UMA SUPER OFERTA...</span></p>
 
-    <p>Você vai sair do básico e começar a operar como gente grande — mesmo com uma banca pequena!</p>
+    <p>Que tal você entender técnicas de <strong>alavancagens de bancas</strong> e virar um <strong>trader profissional</strong>, até mesmo terceirizando seus serviços?<br />
+    <strong>NÃO SAIA DESSA PÁGINA PARA NÃO PERDER ESSA OPORTUNIDADE!</strong></p>
+
+    <p>Com o <strong>Código da Alavancagem</strong>, você aprende a aplicar <span class="highlight">técnicas exclusivas</span> para multiplicar seu capital com inteligência e segurança, mesmo começando com pouco dinheiro.<br />
+    É a <strong>chave para acelerar seus resultados</strong> e sair do básico.</p>
 
     <ul>
-      <li>Alavancagens seguras e testadas</li>
+      <li>Estratégias de alavancagem testadas</li>
+      <li>Ideal para contas pequenas</li>
       <li>Passo a passo simples e direto</li>
-      <li>Ideal para quem quer escalar rápido</li>
-      <li>Suporte direto comigo no WhatsApp</li>
-      <li>Acesso vitalício ao conteúdo</li>
+      <li>Transforme conhecimento em lucro</li>
+      <li>Suporte e acesso vitalício</li>
     </ul>
 
     <div class="depoimentos">
-      <div class="depoimento">“Com o Código da Alavancagem, fiz R$ 500 em uma semana com apenas R$ 50.”<strong>– João T.</strong></div>
-      <div class="depoimento">“Valeu cada centavo. Nunca imaginei conseguir escalar tão rápido.”<strong>– Marina R.</strong></div>
-      <div class="depoimento">“Hoje alavanco bancas de outros! Comecei com esse código.”<strong>– Carlos M.</strong></div>
+      <div class="depoimento">“Com o Código da Alavancagem, consegui meus primeiros R$ 500 em uma semana!”<strong>– João T.</strong></div>
+      <div class="depoimento">“Aprendi a multiplicar minha banca com segurança. Valeu cada centavo.”<strong>– Marina R.</strong></div>
+      <div class="depoimento">“Hoje presto serviço como trader para pessoas. Comecei com esse código!”<strong>– Carlos M.</strong></div>
     </div>
 
     <div id="countdown">Oferta termina em: 10:00</div>
 
-    <a href="https://pay.hotmart.com/S98634850D?off=zepj63xj&checkoutMode=10" class="botao-compra">🔥 Quero desbloquear o Código da Alavancagem!</a>
+    <a href="https://wa.me/+5522992568259" class="whatsapp-button">📲 Agende uma alavancagem comigo!</a>
 
-    <p style="font-size: 1.5em; margin-top: 20px;">Apenas <span class="highlight">R$ 99,99</span> — Oferta única!</p>
+    <p style="color: #fff; font-size: 2em; font-weight: 900; margin-top: 20px;">
+      Oferta imperdível, por apenas R$ 99,99
+    </p>
+
+    <div id="hotmart-sales-funnel" style="margin-top: 40px;"></div>
   </div>
 
+  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
   <script>
-    // Countdown de 10 minutos
-    let tempoRestante = 600;
-    const countdown = document.getElementById("countdown");
+    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
 
-    function atualizarContador() {
-      const minutos = Math.floor(tempoRestante / 60);
-      const segundos = tempoRestante % 60;
-      countdown.textContent = `Oferta termina em: ${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
-      tempoRestante--;
+    let timeLeft = 10 * 60;
+    const countdownElement = document.getElementById('countdown');
 
-      if (tempoRestante >= 0) {
-        setTimeout(atualizarContador, 1000);
+    function updateCountdown() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      countdownElement.textContent = `Oferta termina em: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      if (timeLeft > 0) {
+        timeLeft--;
+        setTimeout(updateCountdown, 1000);
       } else {
-        countdown.textContent = "Oferta Expirada";
+        countdownElement.textContent = "Oferta encerrada!";
       }
     }
 
-    atualizarContador();
+    updateCountdown();
   </script>
 
+  <script>
+    // Fogos de artifício simples com canvas
+    const canvas = document.querySelector('.fireworks');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function Firework() {
+      this.x = random(100, canvas.width - 100);
+      this.y = canvas.height;
+      this.radius = 2;
+      this.color = `hsl(${random(0, 360)}, 100%, 60%)`;
+      this.speedY = random(-18, -12);
+      this.gravity = 0.4;
+      this.alpha = 1;
+    }
+
+    Firework.prototype.update = function () {
+      this.y += this.speedY;
+      this.speedY += this.gravity;
+      this.alpha -= 0.01;
+    };
+
+    Firework.prototype.draw = function () {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = this.alpha;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    };
+
+    const fireworks = [];
+
+    function animateFireworks() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (Math.random() < 0.07) fireworks.push(new Firework());
+
+      for (let i = fireworks.length - 1; i >= 0; i--) {
+        fireworks[i].update();
+        fireworks[i].draw();
+        if (fireworks[i].alpha <= 0) {
+          fireworks.splice(i, 1);
+        }
+      }
+
+      requestAnimationFrame(animateFireworks);
+    }
+
+    animateFireworks();
+  </script>
 </body>
 </html>
